@@ -1,21 +1,15 @@
 package com.example.oregontrail;
 
-/**
- * Creates a place the player can visit.
- */
+import java.util.ArrayList;
+
 public class Place {
-
-    // TODO: Should store resources for sale.
-    // TODO: Should contain NPCs to talk to.
-
-    private final String name;
-
-    /**
-     * Creates a place the player can visit.
-     * @param name Name of the place.
+    int Location = 1;
+    /**Uses and array to display the group location every time the advance button is pressed
+     *
      */
-    public Place(String name) {
-        this.name = name;
+    public static void Place () {
+        ArrayList<String> Towns = new ArrayList<String>();
+        Towns.add("Independence");
+        Towns.add("Beaverton");
     }
-
 }
