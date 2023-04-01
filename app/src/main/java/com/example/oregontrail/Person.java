@@ -73,9 +73,12 @@ public class Person {
         return emotion;
     }
 
-
+    /**
+     *
+     * @param emotion
+     */
     public void setEmotion(Emotion emotion) {
-
+        this.emotion = emotion;
     }
 
     /**
