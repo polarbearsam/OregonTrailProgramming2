@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * Controls the main game and GUI elements.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -13,8 +16,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button button = findViewById(R.id.Button);
-        final TextView textBox = findViewById(R.id.TextBox);
-        final TextView title = findViewById(R.id.Title);
+        // GUI Elements
+        final Button start = findViewById(R.id.startButton);
+        // TODO: Add all GUI Elements here.
+
+        // TODO: Implement functionality.
     }
 }
