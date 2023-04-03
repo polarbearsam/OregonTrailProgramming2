@@ -1,38 +1,31 @@
 package com.example.oregontrail;
 
-/**
- * Creates a condition that people can have.
- */
+import java.util.ArrayList;
+
 public class Condition {
 
-    private final int duration;
-    //private ArrayList<?> effects;
-    private final String name;
+    private ArrayList<Person> afflicted;
+    private int duration;
+    private String name;
 
-    /**
-     * Creates a new condition based on the following parameters.
-     * @param duration The desired duration of the condition.
-     * @param name The desired name of the condition.
-     */
     public Condition(int duration, String name) {
         this.duration = duration;
         this.name = name;
     }
 
-    /**
-     * Gets the duration of the condition.
-     * @return Duration of condition.
-     */
     public int getDuration() {
         return duration;
     }
 
-    /**
-     * Gets the name of the condition.
-     * @return Name of the condition.
-     */
     public String getName() {
         return name;
     }
 
+    public ArrayList<Person> getAfflicted() {
+        return afflicted;
+    }
+
+    public void setAfflicted(ArrayList<Person> afflicted) {
+        this.afflicted = afflicted;
+    }
 }

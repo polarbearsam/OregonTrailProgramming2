@@ -2,36 +2,92 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Start Screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Oregon Trail"
+        android:id="@+id/OreganWelcome"
+        android:layout_width="265dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginBottom="641dp"
+        android:text="WELCOME TO THE OREGON TRAIL"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
-
-    <TextView
-        android:id="@+id/TextBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="269dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/Button"
+        android:id="@+id/startButton"
+        android:layout_width="123dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="354dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="224dp"
+        android:background="#AC3939"
+        android:text="START"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OreganWelcome" />
+
+    <Button
+        android:id="@+id/optionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="488dp" />
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="270dp"
+        android:layout_marginBottom="350dp"
+        android:background="#00FFFFFF"
+        android:text="Options"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/startButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/historyButton" />
+
+    <Button
+        android:id="@+id/historyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="300dp"
+        android:background="#00FFFFFF"
+        android:text="History"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26999998" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="433dp"
+        android:background="#00FFFFFF"
+        android:text="Map"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/historyButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
