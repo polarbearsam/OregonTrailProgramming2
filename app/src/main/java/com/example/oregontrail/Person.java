@@ -7,6 +7,10 @@ import java.util.ArrayList;
  */
 public class Person {
 
+    public enum Emotion {
+        ANGRY, HAPPY, ILL, NEUTRAL, SAD
+    }
+
     private int cleanliness; // A percentage between 0 and 100.
     private ArrayList<Condition> conditions;
     private Emotion emotion;
@@ -21,7 +25,7 @@ public class Person {
      */
     public Person(String name) {
         cleanliness = 100;
-        emotion.setMood('N');
+        emotion = Emotion.NEUTRAL;
         health = 100;
         hunger = 100;
         this.name = name;
