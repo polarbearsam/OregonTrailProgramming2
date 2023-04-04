@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
             menu.setOnClickListener(view12 -> {
                 //Displays condition
-                display.setText("Hattie Campbell-- Stats" + "\nHealth: " + temp + "\nThirst: " + temp + "\nHunger: " + temp + "\nMood: " + temp);
+                display.setText("Hattie Campbell-- Stats" + "\nHealth: " + currentHealth + "\nThirst: " + currentThirst + "\nHunger: " + currentHunger);
             });
         });
     }
