@@ -51,4 +51,27 @@ public class Event {
         }
         return false;
     }
+
+    public void suppliesEvent (int enable, int food, int weapon, int oxen, int meds, int frequency){
+        if (enable == 1 || enable == 3 || enable == 5){
+            food += 500;
+            weapon += 1;
+            oxen += 2;
+            meds += 1;
+        }
+    }
+
+    public void banditEvent (int enable, int health, int food, int oxen){
+        if (enable == 1 || enable == 3){
+            food -= 500;
+            oxen -= 1;
+            health -= 40;
+        }
+
+    }
+
+    public void riverEvent (int day, int thirst){
+        thirst -= 30;
+    }
+
 }
