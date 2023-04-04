@@ -7,9 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
+ *
  * Controls the main game and GUI elements.
+ *
  */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,44 +26,62 @@ public class MainActivity extends AppCompatActivity {
         final Button start = findViewById(R.id.startButton);
         // TODO: Add all GUI Elements here.
         //Start button code
-        final Button start = findViewById(R.id.startButton);
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int day = 0;
                 final TextView display = (TextView) findViewById(R.id.OreganWelcome);
-                final TextView end = (TextView) findViewById(R.id.endButton);
-                final TextView menu = (TextView) findViewById(R.id.optionsButton);
+                final Button end = (Button) findViewById(R.id.endButton);
+                final Button menu = (Button) findViewById(R.id.optionsButton);
+                final Button map = (Button) findViewById(R.id.button4);
                 final TextView menuDisplay = (TextView) findViewById(R.id.menuDisplay);
-                //Code to hide start button goes here
+                final TextView location = (TextView) findViewById(R.id.locationText);
+
+                int currentClean = 100 ; // A percentage between 0 and 100.
+                int currentHealth = 100 ; // A percentage between 0 and 100.
+                int currentHunger = 0 ; // A percentage between 0 and 100.
+                int currentThirst = 0 ; // A percentage between 0 and 100.
+                String player = "Hattie Campbell";
+
+                // Code to hide start button goes here
                 boolean endDay = false;
                 int temp = 100;
                 day = 1;
 
-                if (end.isEnabled()) { //If the end day button is clicked
-                    endDay = true;
+                if (map.isPressed()){
+                  //  menuDisplay.setBackground(); // Set the background of that image to an oregon trail map
                 }
+                if (end.isPressed()) { //If the end day button is clicked
+                    endDay = true;
+                    currentHunger += 10;
+                    currentThirst += 10;
+                }
+
                 if (endDay = true) {
-                    day = day + 1;
+                    day += 1;
                 }
 
                 if (day == 1) {
                     display.setText("Day 1");
+                    location.setText("Location: Independance Missouri");
                 } else if (day == 2) {
                     display.setText("Day 2");
+                    location.setText("Location: templocation2");
                 } else if (day == 3) {
                     display.setText("Day 3");
+                    location.setText("Location: templocation3");
                 } else if (day == 4) {
-                    display.setText("Day 4")
+                    display.setText("Day 4");
+                    location.setText("Location: templocation4");
                 } else if (day == 5) {
                     display.setText("Day 5");
+                    location.setText("Location: templocation5"); // Final location should be Ash Hallow Nebraska
                 } // And so on for however many days!
 
-                if (menu.isEnabled()){ //When the menu button is clicked
-                    //Displays condition
-                    menuDisplay.setText("Health: " + temp + "\nThirst: " + temp + "\nHunger: " + temp + "\nMood: " + temp);
-
+                if (menu.isPressed()){ //When the menu button is clicked
+                    //Displays conditions of character
+                    menuDisplay.setText("Hattie Campbell-- Stats" + "\nHealth: " + currentHealth + "\nThirst: " + currentThirst + "\nHunger: " + currentHunger + "\nMood: " + temp);
                 }
 
             }
