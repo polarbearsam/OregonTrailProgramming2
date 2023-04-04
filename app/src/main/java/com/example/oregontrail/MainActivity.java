@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         Towns.add(new Place("Beaverton", 50));
 
         Person hattie = new Person("Hattie Campbell");
-        hattie.nextDay();
 
         // FIXME: Several issues with the GUI, not entirely sure why.
         start.setOnClickListener(view -> {
@@ -45,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
             end.setOnClickListener(view1 -> {
                 day[0]++;
+                hattie.nextDay();
                 location.setText("On the trail.");
                 for (int i = 0; i < Towns.size(); i++) {
                     if(Towns.get(i).getLocation() == day[0]) {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
             menu.setOnClickListener(view12 -> {
                 //Displays condition
-                display.setText("Health: " + temp + "\nThirst: " + temp + "\nHunger: " + temp + "\nMood: " + temp);
+                display.setText("Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
             });
         });
     }
