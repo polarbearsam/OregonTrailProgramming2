@@ -20,7 +20,5 @@ public class SuppliesEvent extends Event{
     public void onEvent(Wagon wagon) {
         wagon.clothes += 5;
         wagon.food += 50;
-        wagon.supplies += 100;
-        wagon.water += 50;
     }
 }

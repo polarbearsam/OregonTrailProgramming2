@@ -33,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Place> Towns = new ArrayList<>();
         Towns.add(new Place("Independence, Missouri", 1));
-        Towns.add(new Place("Beaverton", 50));
+        Towns.add(new Place("Ash Hollow, Nebraska", 20));
 
         Person hattie = new Person("Hattie Campbell");
         hattie.nextDay();
 
-        Wagon wagon = new Wagon();
+        Wagon wagon = new Wagon(8, 2000, 1, 6, , 3, 3, 3);
 
         // FIXME: Several issues with the GUI, not entirely sure why.
         start.setOnClickListener(view -> {
