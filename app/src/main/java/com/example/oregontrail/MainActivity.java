@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -28,12 +29,17 @@ public class MainActivity extends AppCompatActivity {
         final TextView title = findViewById(R.id.oregonWelcome);
         final TextView display = findViewById(R.id.menuDisplay);
 
+        ArrayList<Event> Events = new ArrayList<>();
+        Events.add(new SuppliesEvent(0.1));
+
         ArrayList<Place> Towns = new ArrayList<>();
         Towns.add(new Place("Independence, Missouri", 1));
         Towns.add(new Place("Beaverton", 50));
 
         Person hattie = new Person("Hattie Campbell");
         hattie.nextDay();
+
+        Wagon wagon = new Wagon();
 
         // FIXME: Several issues with the GUI, not entirely sure why.
         start.setOnClickListener(view -> {
