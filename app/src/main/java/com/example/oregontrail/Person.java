@@ -16,7 +16,9 @@ public class Person {
     private Emotion emotion;
     private int health; // A percentage between 0 and 100.
     private int hunger; // A percentage between 0 and 100.
+    private int hungerRate = 1;
     private int thirst; // A percentage between 0 and 100.
+    private int thirstRate = 1;
     private final String name;
 
     /**
@@ -114,6 +116,14 @@ public class Person {
     }
 
     /**
+     * Gets the person's current hunger rate.
+     * @return Current hunger rate.
+     */
+    public int getHungerRate() {
+        return hungerRate;
+    }
+
+    /**
      * Gets the person's name.
      * @return Person's name.
      */
@@ -127,6 +137,22 @@ public class Person {
      */
     public int getThirst() {
         return thirst;
+    }
+
+    /**
+     * Gets the current thirst rate.
+     * @return The current thirst rate.
+     */
+    public int getThirstRate() {
+        return thirstRate;
+    }
+
+    /**
+     * Controls automatic actions which occur every day.
+     */
+    public void nextDay() {
+        hunger = hunger - hungerRate;
+        thirst = thirst - thirstRate;
     }
 
     /**
@@ -145,6 +171,22 @@ public class Person {
      */
     public void setEmotion(Emotion emotion) {
         this.emotion = emotion;
+    }
+
+    /**
+     * Controls how fast a person gets hungry.
+     * @param hungerRate The desired hunger rate.
+     */
+    public void setHungerRate(int hungerRate) {
+        this.hungerRate = hungerRate;
+    }
+
+    /**
+     * Controls how fast a person gets thirsty.
+     * @param thirstRate The desired thirst rate.
+     */
+    public void setThirstRate(int thirstRate) {
+        this.thirstRate = thirstRate;
     }
 
     /**
