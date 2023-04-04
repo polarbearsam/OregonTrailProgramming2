@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         final TextView title = findViewById(R.id.oregonWelcome);
         final TextView display = findViewById(R.id.menuDisplay);
 
+        int currentHealth = 100 ; // A percentage between 0 and 100.
+        int currentHunger = 0 ; // A percentage between 0 and 100.
+        int currentThirst = 0 ; // A percentage between 0 and 100.
+
         ArrayList<Place> Towns = new ArrayList<>();
         Towns.add(new Place("Independence, Missouri", 1));
         Towns.add(new Place("Beaverton", 50));
@@ -67,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
             menu.setOnClickListener(view12 -> {
                 //Displays condition
-                display.setText("Hattie Campbell-- Stats" + "\nHealth: " + temp + "\nThirst: " + temp + "\nHunger: " + temp + "\nMood: " + temp);
+                display.setText("Hattie Campbell-- Stats" + "\nHealth: " + currentHealth + "\nThirst: " + currentThirst + "\nHunger: " + currentHunger);
             });
         });
     }
