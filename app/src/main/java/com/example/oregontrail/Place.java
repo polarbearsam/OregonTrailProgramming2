@@ -19,11 +19,18 @@ public class Place {
         this.name = name;
         this.location = location;
     }
-
+    /**
+     * Obtains the name of the location.
+     * @return location Location on the trail.
+     */
     public int getLocation() {
         return location;
     }
 
+    /**
+     * Obtains the player names.
+     * @return name Name of the place.
+     */
     public String getName() {
         return name;
     }
