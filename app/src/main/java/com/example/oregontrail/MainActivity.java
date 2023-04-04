@@ -2,6 +2,7 @@ package com.example.oregontrail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         final Button start = findViewById(R.id.startButton);
 
         start.setOnClickListener(new View.OnClickListener() {
+            //@SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 int day = 0;
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 if (end.isEnabled()) { //If the end day button is clicked
                     endDay = true;
                 }
-                if (endDay = true) {
+                if (endDay) {
                     day = day + 1;
                 }
 
@@ -57,9 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     menuDisplay.setText("Health: " + temp + "\nThirst: " + temp + "\nHunger: " + temp + "\nMood: " + temp);
 
                 }
-
             }
         });
-
     }
 }
