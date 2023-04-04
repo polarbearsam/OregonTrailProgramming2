@@ -149,10 +149,13 @@ public class Person {
 
     /**
      * Controls automatic actions which occur every day.
+     * @return Returns true if the player is dead, otherwise returns false.
      */
-    public void nextDay() {
+    public boolean nextDay() {
         hunger = hunger - hungerRate;
         thirst = thirst - thirstRate;
+
+        return hunger == 0 || thirst == 0 || health == 0;
     }
 
     /**

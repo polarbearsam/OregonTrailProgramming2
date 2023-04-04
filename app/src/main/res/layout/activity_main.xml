@@ -9,100 +9,92 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/OreganWelcome"
-        android:layout_width="265dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="121dp"
-        android:layout_marginBottom="641dp"
-        android:text="WELCOME TO THE OREGON TRAIL"
+        android:id="@+id/oregonWelcome"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="73dp"
+        android:text="@string/welcome_to_the_oregon_trail"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/locationText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/startButton"
         android:layout_width="123dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="354dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="224dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="221dp"
         android:background="#AC3939"
-        android:text="START"
+        android:text="@string/start"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OreganWelcome" />
+        app:layout_constraintTop_toBottomOf="@+id/mapButton" />
 
     <Button
         android:id="@+id/optionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="270dp"
-        android:layout_marginBottom="350dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="38dp"
         android:background="#00FFFFFF"
-        android:text="Menu"
+        android:text="@string/menu"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/startButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/endButton" />
+        app:layout_constraintBottom_toTopOf="@+id/endButton"
+        app:layout_constraintEnd_toStartOf="@+id/menuDisplay"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/endButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="300dp"
         android:background="#00FFFFFF"
-        android:text="End Day"
+        android:text="@string/end_day"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26999998" />
+        app:layout_constraintBottom_toTopOf="@+id/mapButton"
+        app:layout_constraintStart_toStartOf="@+id/optionsButton"
+        app:layout_constraintTop_toBottomOf="@+id/menuDisplay" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/mapButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="300dp"
-        android:layout_marginBottom="433dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="100dp"
         android:background="#00FFFFFF"
-        android:text="Map"
+        android:text="@string/map"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/startButton"
+        app:layout_constraintEnd_toStartOf="@+id/menuDisplay"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/endButton" />
 
     <TextView
         android:id="@+id/locationText"
         android:layout_width="93dp"
-        android:layout_height="34dp"
-        android:text="Location: "
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="93dp" />
+        android:layout_height="0dp"
+        android:layout_marginBottom="21dp"
+        android:text="@string/location"
+        app:layout_constraintBottom_toTopOf="@+id/menuDisplay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/oregonWelcome" />
 
     <TextView
         android:id="@+id/menuDisplay"
-        android:layout_width="240dp"
-        android:layout_height="237dp"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="148dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/endButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mapButton"
+        app:layout_constraintTop_toBottomOf="@+id/locationText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
