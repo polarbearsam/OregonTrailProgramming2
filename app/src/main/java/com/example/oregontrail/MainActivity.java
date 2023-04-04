@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Controls the main game and GUI elements.
  */
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         final Button start = findViewById(R.id.startButton);
         final TextView display = findViewById(R.id.oregonWelcome);
         final TextView menuDisplay = findViewById(R.id.menuDisplay);
+
+        ArrayList<Place> Towns = new ArrayList<>();
+        Towns.add(new Place("Independence", 1));
+        Towns.add(new Place("Beaverton", 1));
 
         // FIXME: Several issues with the GUI, not entirely sure why.
         start.setOnClickListener(view -> {
