@@ -1,9 +1,8 @@
 package com.example.oregontrail;
 
-import java.util.ArrayList;
-
 /**
  * Uses and array to display the group location every time the advance button is pressed.
+ * @author Chase Collert, Samuel Freer, and Destiny Morrison
  */
 public class Place {
 

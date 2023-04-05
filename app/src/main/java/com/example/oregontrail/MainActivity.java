@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 /**
  * Controls the main game and GUI elements.
+ * @author Chase Collert, Samuel Freer, and Destiny Morrison
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -25,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
         final Button map = findViewById(R.id.mapButton);
         final Button menu = findViewById(R.id.optionsButton);
         final Button start = findViewById(R.id.startButton);
-        final TextView title = findViewById(R.id.oregonWelcome);
         final TextView display = findViewById(R.id.menuDisplay);
+        final TextView location = findViewById(R.id.locationText);
+        final TextView title = findViewById(R.id.oregonWelcome);
 
         ArrayList<Event> Events = new ArrayList<>();
         Events.add(new SuppliesEvent(0.1));
@@ -36,32 +38,35 @@ public class MainActivity extends AppCompatActivity {
         Towns.add(new Place("Ash Hollow, Nebraska", 20));
 
         Person hattie = new Person("Hattie Campbell");
-        hattie.nextDay();
+        ArrayList<Person> people = new ArrayList<>();
+        people.add(hattie);
 
-        Wagon wagon = new Wagon(8, 2000, 1, 6, , 3, 3, 3);
+        Wagon wagon = new Wagon(8, 2000, 1, 6, people, 3, 3, 3);
 
-        // FIXME: Several issues with the GUI, not entirely sure why.
+        // Controls start button.
         start.setOnClickListener(view -> {
-            //Code to hide start button goes here
+            // Code to hide start button goes here
             final int[] day = {0};
             int temp = 100;
 
+            // Controls the progression of time and travel simulation.
             end.setOnClickListener(view1 -> {
-                boolean inCity = false;
+                // TODO: Implement random events.
                 day[0]++;
+                hattie.nextDay();
+                location.setText("On the trail.");
                 for (int i = 0; i < Towns.size(); i++) {
                     if(Towns.get(i).getLocation() == day[0]) {
-                        title.setText(Towns.get(i).getName());
-                        inCity = true;
+                        location.setText(Towns.get(i).getName());
                         break;
                     }
                 }
-                if(!inCity) {
-                    title.setText("Day " + day[0]);
-                }
+                title.setText("Day " + day[0]);
             });
 
+            // Displays a list of towns.
             map.setOnClickListener(view1 -> {
+                // FIXME: Does not work.
                 StringBuilder list = new StringBuilder();
                 for (int i = 0; i < Towns.size(); i++) {
                     list.append(Towns.get(i));
@@ -70,9 +75,10 @@ public class MainActivity extends AppCompatActivity {
                 display.setText(list);
             });
 
+            // Controls the stats display.
             menu.setOnClickListener(view12 -> {
-                //Displays condition
-                display.setText("Hattie Campbell-- Stats" + "\nHealth: " + currentHealth + "\nThirst: " + currentThirst + "\nHunger: " + currentHunger);
+                // Displays stats
+                display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
             });
         });
     }

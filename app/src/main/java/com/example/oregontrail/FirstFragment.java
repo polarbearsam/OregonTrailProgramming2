@@ -11,6 +11,9 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.oregontrail.databinding.FragmentFirstBinding;
 
+/**
+ * @author Destiny Morrison
+ */
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;

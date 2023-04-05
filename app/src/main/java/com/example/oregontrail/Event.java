@@ -2,6 +2,7 @@ package com.example.oregontrail;
 
 /**
  * Creates an event that can occur on the trail.
+ * @author Samuel Freer
  */
 public abstract class Event {
 

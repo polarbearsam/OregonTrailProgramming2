@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Creates a person for the game.
+ * @author Samuel Freer
  */
 public class Person {
 
@@ -200,7 +201,6 @@ public class Person {
         health = health - damage;
         if (health <= 0) {
             health = 0;
-            // TODO: Implement death.
         }
     }
 }

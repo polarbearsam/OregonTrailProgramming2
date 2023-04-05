@@ -2,6 +2,7 @@ package com.example.oregontrail;
 
 /**
  * Creates a condition that people can have.
+ * @author Samuel Freer
  */
 public class Condition {
 

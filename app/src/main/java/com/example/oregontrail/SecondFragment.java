@@ -11,6 +11,9 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.oregontrail.databinding.FragmentSecondBinding;
 
+/**
+ * @author Destiny Morrison
+ */
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
