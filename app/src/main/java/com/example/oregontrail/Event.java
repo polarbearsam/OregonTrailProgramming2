@@ -1,8 +1,13 @@
+/**
+ * File Name: Event.java
+ * Date: March 27, 2023
+ * @author Samuel Freer
+ * Description: Establishes an abstract class that events can extend.
+ */
 package com.example.oregontrail;
 
 /**
  * Creates an event that can occur on the trail.
- * @author Samuel Freer
  */
 public abstract class Event {
 

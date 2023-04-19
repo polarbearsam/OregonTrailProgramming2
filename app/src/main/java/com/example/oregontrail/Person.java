@@ -1,10 +1,15 @@
+/**
+ * File Name: Person.java
+ * Date: March 27, 2023
+ * @author Samuel Freer
+ * Handles a person's stats.
+ */
 package com.example.oregontrail;
 
 import java.util.ArrayList;
 
 /**
  * Creates a person for the game.
- * @author Samuel Freer
  */
 public class Person {
 

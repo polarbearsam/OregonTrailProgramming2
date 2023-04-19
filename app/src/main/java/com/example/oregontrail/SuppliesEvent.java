@@ -1,8 +1,13 @@
+/**
+ * File Name: SuppliesEvent.java
+ * Date: April 4, 2023
+ * @author Samuel Freer
+ * Description: Adds more supplies.
+ */
 package com.example.oregontrail;
 
 /**
  * Holds randomized supply event that gives the player more supplies
- * @author Samuel Freer
  */
 public class SuppliesEvent extends Event{
     /**
@@ -19,6 +24,7 @@ public class SuppliesEvent extends Event{
      */
     @Override
     public void onEvent(Wagon wagon) {
+        wagon.ammo += 15;
         wagon.clothes += 5;
         wagon.food += 50;
     }

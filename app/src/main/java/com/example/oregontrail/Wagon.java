@@ -1,11 +1,15 @@
+/**
+ * File Name: Wagon.java
+ * Date: April 4, 2023
+ * @author Samuel Freer
+ * Description: Stores the party's resources.
+ */
 package com.example.oregontrail;
-
 
 import java.util.ArrayList;
 
 /**
  * Handles resources which are stored in the wagon.
- * @author Samuel Freer
  */
 public class Wagon {
 
@@ -31,7 +35,8 @@ public class Wagon {
      * @param spareWagonTongues spare tongues
      * @param spareWagonWheels spare wheels
      */
-    public Wagon(int clothes, int food, int medicalSupplies, int oxen, ArrayList<Person> people, int spareWagonAxles, int spareWagonTongues, int spareWagonWheels) {
+    public Wagon(int ammo, int clothes, int food, int medicalSupplies, int oxen, ArrayList<Person> people, int spareWagonAxles, int spareWagonTongues, int spareWagonWheels) {
+        this.ammo = ammo;
         this.clothes = clothes;
         this.food = food;
         this.heirlooms = 5;
@@ -49,5 +54,13 @@ public class Wagon {
      */
     public ArrayList<Person> getPeople() {
         return people;
+    }
+
+    /**
+     * Adds a new pioneer to the wagon.
+     * @param person person to be added to the wagon.
+     */
+    public void addPerson(Person person) {
+        people.add(person);
     }
 }

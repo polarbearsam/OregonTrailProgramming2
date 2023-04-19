@@ -1,3 +1,9 @@
+/**
+ * File Name: FirstFragment.java
+ * Date: April 4, 2023
+ * @author Destiny Morrison
+ * Description:
+ */
 package com.example.oregontrail;
 
 import android.os.Bundle;
@@ -11,9 +17,6 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.oregontrail.databinding.FragmentFirstBinding;
 
-/**
- * @author Destiny Morrison
- */
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;

@@ -1,3 +1,9 @@
+/**
+ * File Name: MainActivity.java
+ * Date: March 27, 2023
+ * @author Chase Collert, Samuel Freer, and Destiny Morrison
+ * Description: Controls the GUI and acts as the main game controller.
+ */
 package com.example.oregontrail;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +17,6 @@ import java.util.ArrayList;
 
 /**
  * Controls the main game and GUI elements.
- * @author Chase Collert, Samuel Freer, and Destiny Morrison
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -41,13 +46,12 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Person> people = new ArrayList<>();
         people.add(hattie);
 
-        Wagon wagon = new Wagon(8, 2000, 1, 6, people, 3, 3, 3);
+        Wagon wagon = new Wagon(200, 8, 2000, 1, 6, people, 3, 3, 3);
 
         // Controls start button.
         start.setOnClickListener(view -> {
             // Code to hide start button goes here
             final int[] day = {0};
-            int temp = 100;
 
             // Controls the progression of time and travel simulation.
             end.setOnClickListener(view1 -> {

@@ -1,8 +1,13 @@
+/**
+ * File Name: Condition.java
+ * Date: March 27, 2023
+ * @author Samuel Freer
+ * Description: Controls conditions that a person can have such as a disease.
+ */
 package com.example.oregontrail;
 
 /**
  * Creates a condition that people can have.
- * @author Samuel Freer
  */
 public class Condition {
 
