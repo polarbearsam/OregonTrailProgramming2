@@ -18,11 +18,13 @@ public class Wagon {
     public int food;
     public int heirlooms;
     public int medicalSupplies;
+    public int money;
     public int oxen;
     private ArrayList<Person> people;
     public int spareWagonAxles;
     public int spareWagonTongues;
     public int spareWagonWheels;
+    public int water;
 
     /**
      * Creates a wagon which stores the following resources:
@@ -34,18 +36,21 @@ public class Wagon {
      * @param spareWagonAxles spare axles
      * @param spareWagonTongues spare tongues
      * @param spareWagonWheels spare wheels
+     * @param water amount of water
      */
-    public Wagon(int ammo, int clothes, int food, int medicalSupplies, int oxen, ArrayList<Person> people, int spareWagonAxles, int spareWagonTongues, int spareWagonWheels) {
+    public Wagon(int ammo, int clothes, int food, int medicalSupplies, int money, int oxen, ArrayList<Person> people, int spareWagonAxles, int spareWagonTongues, int spareWagonWheels, int water) {
         this.ammo = ammo;
         this.clothes = clothes;
         this.food = food;
         this.heirlooms = 5;
         this.medicalSupplies = medicalSupplies;
+        this.money = money;
         this.oxen = oxen;
         this.people = people;
         this.spareWagonAxles = spareWagonAxles;
         this.spareWagonTongues = spareWagonTongues;
         this.spareWagonWheels = spareWagonWheels;
+        this.water = water;
     }
 
     /**
