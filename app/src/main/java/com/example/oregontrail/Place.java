@@ -11,24 +11,14 @@ package com.example.oregontrail;
  */
 public class Place {
 
-    private final int location;
     private final String name;
 
     /**
      * Creates a new place to visit.
      * @param name Name of the place.
-     * @param location Location on the trail.
      */
-    public Place (String name, int location) {
+    public Place (String name) {
         this.name = name;
-        this.location = location;
-    }
-    /**
-     * Obtains the name of the location.
-     * @return location Location on the trail.
-     */
-    public int getLocation() {
-        return location;
     }
 
     /**

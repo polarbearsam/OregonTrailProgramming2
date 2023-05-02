@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
         Events.add(new SuppliesEvent(0.1));
 
         ArrayList<Place> Towns = new ArrayList<>();
-        Towns.add(new Place("Independence, Missouri", 1));
-        Towns.add(new Place("Elk Grove, Nebraska", 6));
-        Towns.add(new Place("Ash Hollow, Nebraska", 11));
-        Towns.add(new Place("Chimney Rock, Nebraska", 16));
-        Towns.add(new Place("Independence Rock, Wyoming", 21));
+        Towns.add(new Place("Independence, Missouri"));
+        Towns.add(new Place("Elk Grove, Nebraska"));
+        Towns.add(new Place("Ash Hollow, Nebraska"));
+        Towns.add(new Place("Chimney Rock, Nebraska"));
+        Towns.add(new Place("Independence Rock, Wyoming"));
 
 
 
@@ -66,12 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 day[0]++;
                 hattie.nextDay(wagon);
                 location.setText("On the trail.");
-                for (int i = 0; i < Towns.size(); i++) {
-                    if(Towns.get(i).getLocation() == day[0]) {
-                        location.setText(Towns.get(i).getName());
-                        break;
-                    }
-                }
                 title.setText("Day " + day[0]);
             });
 
