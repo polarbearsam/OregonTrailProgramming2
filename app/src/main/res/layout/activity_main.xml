@@ -77,14 +77,16 @@
         android:id="@+id/locationText"
         android:layout_width="129dp"
         android:layout_height="97dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="76dp"
-        android:layout_marginEnd="53dp"
+        android:layout_marginEnd="41dp"
         android:layout_marginBottom="37dp"
         android:text="@string/location"
         app:layout_constraintBottom_toTopOf="@+id/optionsButton"
         app:layout_constraintEnd_toStartOf="@+id/menuDisplay"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/oregonWelcome" />
+        app:layout_constraintTop_toBottomOf="@+id/oregonWelcome"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/menuDisplay"
