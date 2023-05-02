@@ -10,11 +10,9 @@
 
     <TextView
         android:id="@+id/oregonWelcome"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="73dp"
+        android:layout_width="265dp"
+        android:layout_height="78dp"
+        android:layout_marginBottom="64dp"
         android:text="@string/welcome_to_the_oregon_trail"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -27,60 +25,60 @@
     <Button
         android:id="@+id/startButton"
         android:layout_width="123dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="221dp"
+        android:layout_height="78dp"
         android:background="#AC3939"
         android:text="@string/start"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapButton" />
+        app:layout_constraintTop_toBottomOf="@+id/menuDisplay" />
 
     <Button
         android:id="@+id/optionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginTop="210dp"
+        android:layout_marginEnd="72dp"
         android:background="#00FFFFFF"
         android:text="@string/menu"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/endButton"
         app:layout_constraintEnd_toStartOf="@+id/menuDisplay"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/oregonWelcome" />
 
     <Button
         android:id="@+id/endButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="62dp"
         android:background="#00FFFFFF"
         android:text="@string/end_day"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/mapButton"
-        app:layout_constraintStart_toStartOf="@+id/optionsButton"
-        app:layout_constraintTop_toBottomOf="@+id/menuDisplay" />
+        app:layout_constraintEnd_toStartOf="@+id/menuDisplay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionsButton" />
 
     <Button
         android:id="@+id/mapButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="114dp"
+        android:layout_marginBottom="299dp"
         android:background="#00FFFFFF"
         android:text="@string/map"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/startButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/menuDisplay"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/endButton" />
 
     <TextView
         android:id="@+id/locationText"
-        android:layout_width="93dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="21dp"
+        android:layout_width="129dp"
+        android:layout_height="97dp"
         android:text="@string/location"
         app:layout_constraintBottom_toTopOf="@+id/menuDisplay"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,12 +87,11 @@
 
     <TextView
         android:id="@+id/menuDisplay"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/endButton"
+        android:layout_width="189dp"
+        android:layout_height="203dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mapButton"
-        app:layout_constraintTop_toBottomOf="@+id/locationText" />
+        app:layout_constraintStart_toEndOf="@+id/endButton"
+        app:layout_constraintTop_toBottomOf="@+id/oregonWelcome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -40,7 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Place> Towns = new ArrayList<>();
         Towns.add(new Place("Independence, Missouri", 1));
-        Towns.add(new Place("Ash Hollow, Nebraska", 20));
+        Towns.add(new Place("Elk Grove, Nebraska", 6));
+        Towns.add(new Place("Ash Hollow, Nebraska", 11));
+        Towns.add(new Place("Chimney Rock, Nebraska", 16));
+        Towns.add(new Place("Independence Rock, Wyoming", 21));
+
 
         Person hattie = new Person("Hattie Campbell");
         ArrayList<Person> people = new ArrayList<>();
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         start.setOnClickListener(view -> {
             // Code to hide start button goes here
             final int[] day = {0};
+            start.setVisibility(View.GONE);
 
             // Controls the progression of time and travel simulation.
             end.setOnClickListener(view1 -> {
@@ -84,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 // Displays stats
                 display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
             });
+
         });
     }
 }
