@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Person> people = new ArrayList<>();
         people.add(hattie);
 
-        Wagon wagon = new Wagon(200, 8, 2000, 1, 6, people, 3, 3, 3);
+        Wagon wagon = new Wagon(200, 8, 2000, 1, 1000,6, people, 3, 3, 3, 100);
 
         // Controls start button.
         start.setOnClickListener(view -> {
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             end.setOnClickListener(view1 -> {
                 // TODO: Implement random events.
                 day[0]++;
-                hattie.nextDay();
+                hattie.nextDay(wagon);
                 location.setText("On the trail.");
                 for (int i = 0; i < Towns.size(); i++) {
                     if(Towns.get(i).getLocation() == day[0]) {

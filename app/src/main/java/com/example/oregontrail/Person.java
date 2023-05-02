@@ -36,6 +36,7 @@ public class Person {
         emotion = Emotion.NEUTRAL;
         health = 100;
         hunger = 100;
+        thirst = 100;
         this.name = name;
     }
 
@@ -157,11 +158,21 @@ public class Person {
      * Controls automatic actions which occur every day.
      * @return Returns true if the player is dead, otherwise returns false.
      */
-    public boolean nextDay() {
+    public boolean nextDay(Wagon wagon) {
         hunger = hunger - hungerRate;
         thirst = thirst - thirstRate;
 
-        return hunger == 0 || thirst == 0 || health == 0;
+        if (wagon.water >= 2 && thirst < 100) {
+            drink(2);
+            wagon.water = wagon.water - 2;
+        }
+
+        if (wagon.food >= 2 && hunger < 100) {
+            eat(2);
+            wagon.food = wagon.food - 2;
+        }
+
+        return hunger <= 0 || thirst <= 0 || health <= 0;
     }
 
     /**
