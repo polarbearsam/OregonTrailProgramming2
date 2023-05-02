@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Towns.add(new Place("Independence Rock, Wyoming", 21));
 
 
+
         Person hattie = new Person("Hattie Campbell");
         ArrayList<Person> people = new ArrayList<>();
         people.add(hattie);
