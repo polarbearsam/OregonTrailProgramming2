@@ -68,4 +68,6 @@ public class Wagon {
     public void addPerson(Person person) {
         people.add(person);
     }
+
+    
 }
