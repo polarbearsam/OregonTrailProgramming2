@@ -6,6 +6,8 @@
  */
 package com.example.oregontrail;
 
+import java.util.ArrayList;
+
 /**
  * Creates a person for the game.
  */
@@ -16,7 +18,7 @@ public class Person {
     }
 
     private int cleanliness; // A percentage between 0 and 100.
-    private Condition conditions;
+    private ArrayList<Condition> conditions;
     private Emotion emotion;
     private int health; // A percentage between 0 and 100.
     private int hunger; // A percentage between 0 and 100.
@@ -91,7 +93,7 @@ public class Person {
      * Gets the person's conditions.
      * @return A list of conditions afflicting the person.
      */
-    public Condition getConditions() {
+    public ArrayList<Condition> getConditions() {
         return conditions;
     }
 
@@ -178,7 +180,7 @@ public class Person {
      * @param conditions to remove
      * @return true if the condition was found and removed, otherwise false.
      */
-    public boolean removeCondition(Condition conditions) {
+    public boolean removeCondition(ArrayList<Condition> conditions) {
         // TODO: Add functionality.
         this.conditions = conditions;
         return false;

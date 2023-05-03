@@ -61,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
             start.setVisibility(View.GONE);
 
             // Controls the progression of time and travel simulation.
+            /*
+            // TODO: Implement automatic day progression.
+            try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+             */
             end.setOnClickListener(view1 -> {
                 // TODO: Implement random events.
                 day[0]++;
