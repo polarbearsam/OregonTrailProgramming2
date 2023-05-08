@@ -36,9 +36,11 @@ public class MainActivity extends AppCompatActivity {
         final TextView location = findViewById(R.id.locationText);
         final TextView title = findViewById(R.id.oregonWelcome);
 
+        // Random Events
         ArrayList<Event> Events = new ArrayList<>();
         Events.add(new SuppliesEvent(0.1));
 
+        // List of locations on the trail.
         ArrayList<Place> Towns = new ArrayList<>();
         Towns.add(new Place("Independence, Missouri", 1));
         Towns.add(new Place("Elk Grove, Nebraska", 6));
@@ -46,12 +48,12 @@ public class MainActivity extends AppCompatActivity {
         Towns.add(new Place("Chimney Rock, Nebraska", 16));
         Towns.add(new Place("Independence Rock, Wyoming", 21));
 
-
-
+        // Characters
         Person hattie = new Person("Hattie Campbell");
         ArrayList<Person> people = new ArrayList<>();
         people.add(hattie);
 
+        // Wagon
         Wagon wagon = new Wagon(200, 8, 2000, 1, 1000,6, people, 3, 3, 3, 100);
 
         // Controls start button.
