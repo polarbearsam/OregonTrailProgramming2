@@ -6,6 +6,9 @@
  */
 package com.example.oregontrail;
 
+/**
+ * Creates an item type for items.
+ */
 public class Item {
 
     private int count;
