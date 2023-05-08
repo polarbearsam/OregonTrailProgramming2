@@ -34,7 +34,7 @@ public class MainActivityTest extends TestCase {
                     int day = 0;
                     final TextView display = (TextView) findViewById(R.id.OreganWelcome);
                     final Button end = (Button) findViewById(R.id.endButton);
-                    final Button menu = (Button) findViewById(R.id.optionsButton);
+                    final Button menu = (Button) findViewById(R.id.menuButton);
                     final Button map = (Button) findViewById(R.id.button4);
                     final TextView menuDisplay = (TextView) findViewById(R.id.menuDisplay);
                     final TextView location = (TextView) findViewById(R.id.locationText);

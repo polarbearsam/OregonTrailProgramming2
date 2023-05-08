@@ -12,6 +12,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,16 +22,19 @@ import java.util.ArrayList;
  */
 public class MainActivity extends AppCompatActivity {
 
+    ImageView imageView;
+    Button menuButton;
     @SuppressLint("SetTextI18n") // Unclear why this is needed, but it is.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        imageView = (ImageView)findViewById(R.id.imageView);
 
         // GUI Elements
         final Button end = findViewById(R.id.endButton);
         final Button map = findViewById(R.id.mapButton);
-        final Button menu = findViewById(R.id.optionsButton);
+        final Button menu = findViewById(R.id.menuButton);
         final Button start = findViewById(R.id.startButton);
         final TextView display = findViewById(R.id.menuDisplay);
         final TextView location = findViewById(R.id.locationText);
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         start.setOnClickListener(view -> {
             // Code to hide start button goes here
             final int[] day = {0};
-            start.setVisibility(View.GONE);
+            start.setVisibility(View.INVISIBLE);
 
             // Controls the progression of time and travel simulation.
             end.setOnClickListener(view1 -> {
@@ -79,19 +83,16 @@ public class MainActivity extends AppCompatActivity {
 
             // Displays a list of towns.
             map.setOnClickListener(view1 -> {
-                // FIXME: Does not work.
-                StringBuilder list = new StringBuilder();
-                for (int i = 0; i < Towns.size(); i++) {
-                    list.append(Towns.get(i));
-                }
-
-                display.setText(list);
+                imageView.setVisibility(View.VISIBLE);
+                display.setVisibility(View.INVISIBLE);
             });
 
             // Controls the stats display.
             menu.setOnClickListener(view12 -> {
+                imageView.setVisibility(View.INVISIBLE);
                 // Displays stats
                 display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
+                display.setVisibility(View.VISIBLE);
             });
 
         });
