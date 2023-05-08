@@ -16,11 +16,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Controls the main game and GUI elements.
  */
 public class MainActivity extends AppCompatActivity {
+
+    public boolean Is_Event() {
+        // create instance of Random class
+        Random rand = new Random();
+
+        // Generate random integers in range 0 to 9
+        int rand_int = rand.nextInt(10);
+        if (rand_int == 1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public int Which_Event() {
+        // create instance of Random class
+        Random rand = new Random();
+
+        // Generate random integers in range 0 to 0
+        int rand_int = rand.nextInt(0);
+        return rand_int;
+    }
 
     ImageView imageView;
     Button menuButton;
@@ -79,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 title.setText("Day " + day[0]);
+                int which_event = -1;
+                boolean is_event = Is_Event();
+                if (is_event == true) {
+                    which_event = Which_Event();
+                }
+                if (which_event == 0) {
+                    Events.get(0).onEvent(wagon);
+                }
             });
 
             // Displays a list of towns.
