@@ -24,8 +24,8 @@ public class SuppliesEvent extends Event{
      */
     @Override
     public void onEvent(Wagon wagon) {
-        wagon.setAmmo(wagon.getAmmo() + 15);
-        wagon.setClothes(wagon.getClothes() + 5);
-        wagon.setFood(wagon.getFood() + 50);
+        wagon.getItem("Ammo").addToCount(25);
+        wagon.getItem("Clothes").addToCount(3);
+        wagon.getItem("Food").addToCount(50);
     }
 }

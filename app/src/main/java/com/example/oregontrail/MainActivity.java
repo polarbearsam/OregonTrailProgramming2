@@ -23,25 +23,15 @@ import java.util.Random;
  */
 public class MainActivity extends AppCompatActivity {
 
-    public boolean Is_Event() {
+    public int randomValue(int maxNumber, int minNumber) {
         // create instance of Random class
         Random rand = new Random();
 
         // Generate random integers in range 0 to 9
-        int rand_int = rand.nextInt(10);
-        return rand_int == 1;
-    }
-
-    public int Which_Event() {
-        // create instance of Random class
-        Random rand = new Random();
-
-        // Generate random integers in range 0 to 0
-        return rand.nextInt(0);
+        return rand.nextInt(maxNumber + 1 - minNumber) + minNumber;
     }
 
     ImageView imageView;
-    Button menuButton;
     @SuppressLint("SetTextI18n") // Unclear why this is needed, but it is.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +66,19 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Person> people = new ArrayList<>();
         people.add(hattie);
 
+        // Items
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Item("Ammo", 200, 0));
+        items.add(new Item("Clothes", 8, 0));
+        items.add(new Item("Food", 2000, 0));
+        items.add(new Item("Medical Supplies", 1, 0));
+        items.add(new Item("Spare Wagon Axles", 3, 0));
+        items.add(new Item("Spare Wagon Tongues", 3, 0));
+        items.add(new Item("Spare Wagon Wheels", 3, 0));
+        items.add(new Item("Water", 100, 0));
+
         // Wagon
-        Wagon wagon = new Wagon(200, 8, 2000, 1, 1000,6, people, 3, 3, 3, 100);
+        Wagon wagon = new Wagon(items, 1000, 6, people);
 
         // Controls start button.
         start.setOnClickListener(view -> {
@@ -87,21 +88,21 @@ public class MainActivity extends AppCompatActivity {
 
             // Controls the progression of time and travel simulation.
             end.setOnClickListener(view1 -> {
-                // TODO: Implement random events.
+                boolean inCity = false;
                 day[0]++;
                 hattie.nextDay(wagon);
                 location.setText("On the trail.");
                 for (int i = 0; i < Towns.size(); i++) {
                     if(Towns.get(i).getLocation() == day[0]) {
                         location.setText(Towns.get(i).getName());
+                        inCity = true;
                         break;
                     }
                 }
                 title.setText("Day " + day[0]);
 
-                if (Is_Event()) {
-                    // FIXME: There's an issue either from this code or with the code of the event it is calling causing the game to crash.
-                    // Events.get(Which_Event()).onEvent(wagon);
+                if (randomValue(10, 1) == 1 && !inCity) {
+                    Events.get(randomValue(Events.size() - 1, 0)).onEvent(wagon);
                 }
             });
 
