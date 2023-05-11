@@ -162,14 +162,14 @@ public class Person {
         hunger = hunger - hungerRate;
         thirst = thirst - thirstRate;
 
-        if (wagon.water >= 2 && thirst < 100) {
+        if (wagon.getWater() >= 2 && thirst < 100) {
             drink(2);
-            wagon.water = wagon.water - 2;
+            wagon.setWater(wagon.getWater() - 2);
         }
 
-        if (wagon.food >= 2 && hunger < 100) {
+        if (wagon.getFood() >= 2 && hunger < 100) {
             eat(2);
-            wagon.food = wagon.food - 2;
+            wagon.setFood(wagon.getFood() - 2);
         }
 
         return hunger <= 0 || thirst <= 0 || health <= 0;

@@ -29,12 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Generate random integers in range 0 to 9
         int rand_int = rand.nextInt(10);
-        if (rand_int == 1) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return rand_int == 1;
     }
 
     public int Which_Event() {
@@ -42,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Random rand = new Random();
 
         // Generate random integers in range 0 to 0
-        int rand_int = rand.nextInt(0);
-        return rand_int;
+        return rand.nextInt(0);
     }
 
     ImageView imageView;
@@ -71,10 +65,11 @@ public class MainActivity extends AppCompatActivity {
         // List of locations on the trail.
         ArrayList<Place> Towns = new ArrayList<>();
         Towns.add(new Place("Independence, Missouri", 1));
-        Towns.add(new Place("Elk Grove, Nebraska", 6));
-        Towns.add(new Place("Ash Hollow, Nebraska", 11));
-        Towns.add(new Place("Chimney Rock, Nebraska", 16));
-        Towns.add(new Place("Independence Rock, Wyoming", 21));
+        Towns.add(new Place("Elk Grove, Nebraska", 60));
+        Towns.add(new Place("Ash Hollow, Nebraska", 100));
+        Towns.add(new Place("Chimney Rock, Nebraska", 140));
+        Towns.add(new Place("Independence Rock, Wyoming", 180));
+        Towns.add(new Place("Oregon", 240));
 
         // Characters
         Person hattie = new Person("Hattie Campbell");
@@ -103,13 +98,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 title.setText("Day " + day[0]);
-                int which_event = -1;
-                boolean is_event = Is_Event();
-                if (is_event == true) {
-                    which_event = Which_Event();
-                }
-                if (which_event == 0) {
-                    Events.get(0).onEvent(wagon);
+
+                if (Is_Event()) {
+                    // FIXME: There's an issue either from this code or with the code of the event it is calling causing the game to crash.
+                    // Events.get(Which_Event()).onEvent(wagon);
                 }
             });
 
