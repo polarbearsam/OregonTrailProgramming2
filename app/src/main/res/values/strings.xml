@@ -16,4 +16,6 @@
     <string name="map">Map</string>
     <string name="location">Location:</string>
     <string name="map_of_the_oregon_trail">Map of the Oregon Trail</string>
+    <string name="store_information">Item information goes here!</string>
+    <string name="buy">Buy</string>
 </resources>
