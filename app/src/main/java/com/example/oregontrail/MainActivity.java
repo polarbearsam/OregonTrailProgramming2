@@ -15,6 +15,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.oregontrail.Events.SuppliesEvent;
+import com.example.oregontrail.Events.TheftEvent;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,6 +26,12 @@ import java.util.Random;
  */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Generates a random number between the maxNumber and minNumber.
+     * @param maxNumber Highest number to generate.
+     * @param minNumber Lowest number to generate.
+     * @return the randomly generated number.
+     */
     public int randomValue(int maxNumber, int minNumber) {
         // create instance of Random class
         Random rand = new Random();
@@ -31,15 +40,14 @@ public class MainActivity extends AppCompatActivity {
         return rand.nextInt(maxNumber + 1 - minNumber) + minNumber;
     }
 
-    ImageView imageView;
     @SuppressLint("SetTextI18n") // Unclear why this is needed, but it is.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imageView = (ImageView)findViewById(R.id.imageView);
 
         // GUI Elements
+        ImageView imageView = findViewById(R.id.imageView);
         final Button end = findViewById(R.id.endButton);
         final Button map = findViewById(R.id.mapButton);
         final Button menu = findViewById(R.id.menuButton);
@@ -50,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Random Events
         ArrayList<Event> Events = new ArrayList<>();
-        Events.add(new SuppliesEvent(0.1));
+        Events.add(new SuppliesEvent(1));
+        Events.add(new TheftEvent(1));
 
         // List of locations on the trail.
         ArrayList<Place> Towns = new ArrayList<>();

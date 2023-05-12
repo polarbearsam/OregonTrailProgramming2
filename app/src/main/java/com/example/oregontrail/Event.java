@@ -11,7 +11,7 @@ package com.example.oregontrail;
  */
 public abstract class Event {
 
-    private double frequency; // Represented as a percentage between 0 and 1.
+    private final double frequency; // Represented as a percentage between 0 and 1.
     private final String name;
 
     /**
@@ -25,6 +25,14 @@ public abstract class Event {
     }
 
     /**
+     * Gets the frequency of the event.
+     * @return The frequency of the event, which is a value between 0 and 1.
+     */
+    public double getFrequency() {
+        return frequency;
+    }
+
+    /**
      * Gets the name of the event.
      * @return The name of the event.
      */
@@ -33,25 +41,9 @@ public abstract class Event {
     }
 
     /**
-     * Gets the frequency of the event.
-     * @return The frequency of the event, which is a value between 0 and 1.
+     * Executes the event.
+     * @param wagon the wagon that the event is happening to.
+     * @return the text output for the event.
      */
-    public double getFrequency() {
-        return frequency;
-    }
-
-    public abstract void onEvent(Wagon wagon);
-
-    /**
-     * Sets the frequency of the event.
-     * @param frequency The desired frequency of the event, which must be a value between 0 and 1.
-     * @return True if the frequency was set correctly, otherwise returns false.
-     */
-    public boolean setFrequency(double frequency) {
-        if (frequency >= 0 && frequency <= 1) {
-            this.frequency = frequency;
-            return true;
-        }
-        return false;
-    }
+    public abstract String onEvent(Wagon wagon);
 }
