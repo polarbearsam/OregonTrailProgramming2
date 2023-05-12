@@ -11,8 +11,9 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="welcome_to_the_oregon_trail">WELCOME TO THE OREGON TRAIL</string>
     <string name="start">START</string>
-    <string name="menu">Menu</string>
+    <string name="stats">Stats</string>
     <string name="end_day">End Day</string>
     <string name="map">Map</string>
     <string name="location">Location:</string>
+    <string name="map_of_the_oregon_trail">Map of the Oregon Trail</string>
 </resources>

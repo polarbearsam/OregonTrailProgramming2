@@ -30,19 +30,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuDisplay" />
+        app:layout_constraintTop_toBottomOf="@+id/statsDisplay" />
 
     <Button
-        android:id="@+id/menuButton"
+        android:id="@+id/statsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="210dp"
         android:layout_marginEnd="72dp"
         android:background="#00FFFFFF"
-        android:text="@string/menu"
+        android:text="@string/stats"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/endButton"
-        app:layout_constraintEnd_toStartOf="@+id/menuDisplay"
+        app:layout_constraintEnd_toStartOf="@+id/statsDisplay"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/oregonWelcome" />
@@ -56,7 +56,7 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/mapButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuButton" />
+        app:layout_constraintTop_toBottomOf="@+id/statsButton" />
 
     <Button
         android:id="@+id/mapButton"
@@ -68,7 +68,7 @@
         android:text="@string/map"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/menuDisplay"
+        app:layout_constraintEnd_toStartOf="@+id/statsDisplay"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/endButton" />
@@ -82,14 +82,14 @@
         android:layout_marginEnd="41dp"
         android:layout_marginBottom="37dp"
         android:text="@string/location"
-        app:layout_constraintBottom_toTopOf="@+id/menuButton"
-        app:layout_constraintEnd_toStartOf="@+id/menuDisplay"
+        app:layout_constraintBottom_toTopOf="@+id/statsButton"
+        app:layout_constraintEnd_toStartOf="@+id/statsDisplay"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/oregonWelcome"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/menuDisplay"
+        android:id="@+id/statsDisplay"
         android:layout_width="213dp"
         android:layout_height="448dp"
         android:layout_marginTop="65dp"
@@ -111,6 +111,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.416"
-        app:srcCompat="@drawable/map" />
+        app:srcCompat="@drawable/map"
+        android:contentDescription="@string/map_of_the_oregon_trail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

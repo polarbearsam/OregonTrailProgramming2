@@ -50,25 +50,11 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.imageView);
         final Button end = findViewById(R.id.endButton);
         final Button map = findViewById(R.id.mapButton);
-        final Button menu = findViewById(R.id.menuButton);
+        final Button menu = findViewById(R.id.statsButton);
         final Button start = findViewById(R.id.startButton);
-        final TextView display = findViewById(R.id.menuDisplay);
+        final TextView display = findViewById(R.id.statsDisplay);
         final TextView location = findViewById(R.id.locationText);
         final TextView title = findViewById(R.id.oregonWelcome);
-
-        // Random Events
-        ArrayList<Event> Events = new ArrayList<>();
-        Events.add(new SuppliesEvent(1));
-        Events.add(new TheftEvent(1));
-
-        // List of locations on the trail.
-        ArrayList<Place> Towns = new ArrayList<>();
-        Towns.add(new Place("Independence, Missouri", 1));
-        Towns.add(new Place("Elk Grove, Nebraska", 60));
-        Towns.add(new Place("Ash Hollow, Nebraska", 100));
-        Towns.add(new Place("Chimney Rock, Nebraska", 140));
-        Towns.add(new Place("Independence Rock, Wyoming", 180));
-        Towns.add(new Place("Oregon", 240));
 
         // Characters
         Person hattie = new Person("Hattie Campbell");
@@ -85,6 +71,20 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Spare Wagon Tongues", 3, 0));
         items.add(new Item("Spare Wagon Wheels", 3, 0));
         items.add(new Item("Water", 100, 0));
+
+        // List of locations on the trail.
+        ArrayList<Place> Towns = new ArrayList<>();
+        Towns.add(new Place("Independence, Missouri", 1));
+        Towns.add(new Place("Elk Grove, Nebraska", 60));
+        Towns.add(new Place("Ash Hollow, Nebraska", 100));
+        Towns.add(new Place("Chimney Rock, Nebraska", 140));
+        Towns.add(new Place("Independence Rock, Wyoming", 180));
+        Towns.add(new Place("Oregon", 240));
+
+        // Random Events
+        ArrayList<Event> Events = new ArrayList<>();
+        Events.add(new SuppliesEvent(1));
+        Events.add(new TheftEvent(1));
 
         // Wagon
         Wagon wagon = new Wagon(items, 1000, 6, people);
