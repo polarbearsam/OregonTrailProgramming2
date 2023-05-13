@@ -6,15 +6,67 @@
  */
 package com.example.oregontrail;
 
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Creates a person for the game.
  */
-public class Person {
+public class Person extends Drawable {
+
+    @Override
+    public void draw(@NonNull Canvas canvas) {
+
+    }
+
+    @Override
+    public void setAlpha(int i) {
+
+    }
+
+    @Override
+    public void setColorFilter(@Nullable ColorFilter colorFilter) {
+
+    }
+
+    @Override
+    public int getOpacity() {
+        return 0;
+    }
 
     public enum Emotion {
         ANGRY, HAPPY, ILL, NEUTRAL, SAD
+    }
+
+    /**
+     * This function takes an emotion as an argument and returns the corresponding image.
+     *
+     * @param emotion (String): The emotion to switch the image for
+     * @return (String): The name of the image file for the corresponding emotion
+     */
+    public static String switchImage(String emotion) {
+        // Create a HashMap to store the emotion-image mappings
+        HashMap<String, String> emotionImageMap = new HashMap<>();
+        emotionImageMap.put("happy", "happy.jpg");
+        emotionImageMap.put("sad", "sad.jpg");
+        emotionImageMap.put("angry", "angry.jpg");
+        emotionImageMap.put("ill", "ill.jpg");
+
+        // Check if the emotion is in the map
+        if (emotionImageMap.containsKey(emotion)) {
+            // Return the corresponding image file name
+            return emotionImageMap.get(emotion);
+        } else {
+            // Return default image file name
+            return "neutral.jpg";
+        }
     }
 
     private int cleanliness; // A percentage between 0 and 100.
@@ -100,9 +152,10 @@ public class Person {
 
     /**
      * Gets the person's current emotion.
+     *
      * @return The current emotion.
      */
-    public Emotion getEmotion() {
+    public int getEmotion() {
         return emotion;
     }
 
