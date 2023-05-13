@@ -27,6 +27,17 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     /**
+     * This function creates an ending for an Oregon Trail game based on the player's name, cause of death, and day.
+     * Author: Samuel Freer and Destiny Morrison
+     * @param name The player's name
+     * @param day The day the player died
+     * @return A string representing the player's ending
+     */
+    public static String createDeathEnding(String name, int day) {
+        return "Here lies " + name + ". They died on " + day + ".";
+    }
+
+    /**
      * Generates a random number between the maxNumber and minNumber.
      * @param maxNumber Highest number to generate.
      * @param minNumber Lowest number to generate.
@@ -50,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.imageView);
         final Button end = findViewById(R.id.endButton);
         final Button map = findViewById(R.id.mapButton);
-        final Button menu = findViewById(R.id.statsButton);
+        final Button stats = findViewById(R.id.statsButton);
         final Button start = findViewById(R.id.startButton);
         final TextView display = findViewById(R.id.statsDisplay);
         final TextView location = findViewById(R.id.locationText);
@@ -98,9 +109,29 @@ public class MainActivity extends AppCompatActivity {
             // Controls the progression of time and travel simulation.
             end.setOnClickListener(view1 -> {
                 boolean inCity = false;
+
                 day[0]++;
-                hattie.nextDay(wagon);
+                title.setText("Day " + day[0]);
                 location.setText("On the trail.");
+                hattie.nextDay(wagon);
+
+                // Runs all the daily calculations for each character.
+                for (int i = 0; i < wagon.getPeople().size(); i++) {
+                    Person person = wagon.getPeople().get(i);
+
+                    // Checks if person has died.
+                    if (person.nextDay(wagon)) {
+                        display.setText(createDeathEnding(person.getName(), day[0]));
+
+                        if (person.getName().equals("Hattie Campbell")) {
+                            // TODO: Reset game.
+                            break;
+                        }
+
+                        wagon.getPeople().remove(person);
+                    }
+                }
+
                 for (int i = 0; i < Towns.size(); i++) {
                     if(Towns.get(i).getLocation() == day[0]) {
                         location.setText(Towns.get(i).getName());
@@ -108,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                 }
-                title.setText("Day " + day[0]);
 
                 if (randomValue(10, 1) == 1 && !inCity) {
                     Events.get(randomValue(Events.size() - 1, 0)).onEvent(wagon);
@@ -122,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
             // Controls the stats display.
-            menu.setOnClickListener(view12 -> {
+            stats.setOnClickListener(view12 -> {
                 imageView.setVisibility(View.INVISIBLE);
                 // Displays stats
                 display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
