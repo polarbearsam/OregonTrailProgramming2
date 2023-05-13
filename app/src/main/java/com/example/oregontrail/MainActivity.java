@@ -34,7 +34,17 @@ public class MainActivity extends AppCompatActivity {
      * @return A string representing the player's ending
      */
     public static String createDeathEnding(String name, int day) {
-        return "Here lies " + name + ". They died on " + day + ".";
+        return "Here lies " + name + ". They died on day " + day + "." + "\n GAME OVER.";
+    }
+
+
+    // TODO Create function that sees if location is in Oregon, if so it'll display that you made it to Oregon.
+
+    public void onEvent (int location){
+
+        if (location == 0){
+
+        }
     }
 
     /**
@@ -136,6 +146,9 @@ public class MainActivity extends AppCompatActivity {
                     if(Towns.get(i).getLocation() == day[0]) {
                         location.setText(Towns.get(i).getName());
                         inCity = true;
+                        if (Towns.equals("Oregon")){
+                            display.setText("YOU MADE IT TO OREGON!" + "\n GAME OVER. YOU WON!");
+                        }
                         break;
                     }
                 }
@@ -160,5 +173,6 @@ public class MainActivity extends AppCompatActivity {
             });
 
         });
+    
     }
 }
