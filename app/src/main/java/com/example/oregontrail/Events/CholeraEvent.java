@@ -34,7 +34,6 @@ public class CholeraEvent extends Event {
     public String onEvent(Wagon wagon) {
         Person person = wagon.getPeople().get(MainActivity.randomValue(wagon.getPeople().size() - 1, 0));
         person.addCondition(new Cholera(10));
-
         return person.getName() + " contracted Cholera.";
     }
 }

@@ -164,7 +164,11 @@ public class Person {
         thirst = thirst - thirstRate;
 
         for(int i = 0; i < conditions.size(); i++) {
-            conditions.get(i).effects(this);
+            if(conditions.get(i).effects(this)) {
+                conditions.remove(conditions.get(i));
+                setHungerRate(1);
+                setThirstRate(1);
+            }
         }
 
         if (wagon.getItem("Water").getCount() >= 2 && thirst < 100) {
