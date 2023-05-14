@@ -7,6 +7,7 @@
 package com.example.oregontrail.Events;
 
 import com.example.oregontrail.Event;
+import com.example.oregontrail.Person;
 import com.example.oregontrail.Wagon;
 
 /**
@@ -32,6 +33,11 @@ public class SuppliesEvent extends Event {
         wagon.getItem("Ammo").addToCount(25);
         wagon.getItem("Clothes").addToCount(3);
         wagon.getItem("Food").addToCount(50);
+
+        for (int i = 0; i < wagon.getPeople().size(); i++) {
+            wagon.getPeople().get(i).setEmotion(Person.Emotion.HAPPY);
+        }
+
         return "You find some extra supplies on the side of the trail.";
     }
 }

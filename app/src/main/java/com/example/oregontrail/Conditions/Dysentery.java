@@ -34,8 +34,8 @@ public class Dysentery extends Condition {
         days++;
 
         person.setEmotion(Person.Emotion.ILL);
-        person.eat(3);
-        person.drink(3);
+        person.setHungerRate(3);
+        person.setThirstRate(3);
 
         return days >= getDuration();
     }

@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
      * @return A string representing the player's ending
      */
     public static String createDeathEnding(String name, int day) {
-        return "Here lies " + name + ". They died on day " + day + "." + "\n GAME OVER.";
+        return "Here lies " + name + ". They died on day " + day + ".";
     }
 
     /**
@@ -93,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
         Towns.add(new Place("Elk Grove, Nebraska", 60));
         Towns.add(new Place("Ash Hollow, Nebraska", 100));
         Towns.add(new Place("Chimney Rock, Nebraska", 140));
-        Towns.add(new Place("Independence Rock, Wyoming", 180));
-        Towns.add(new Place("Oregon", 240));
+        Towns.add(new Place("Independence Rock, Wyoming", 160));
+        Towns.add(new Place("Oregon", 200));
 
         // Random Events
         ArrayList<Event> Events = new ArrayList<>();
@@ -131,7 +131,12 @@ public class MainActivity extends AppCompatActivity {
                     if (person.nextDay(wagon)) {
                         display.setText(createDeathEnding(person.getName(), day[0]));
 
+                        for (int i2 = 0; i2 < wagon.getPeople().size(); i2++) {
+                            wagon.getPeople().get(i).setEmotion(Person.Emotion.SAD);
+                        }
+
                         if (person.getName().equals("Hattie Campbell")) {
+                            display.setText("Hattie Campbell died on day " + day[0] + ".\nGAME OVER");
                             // TODO: Reset game.
                             break;
                         }
@@ -144,6 +149,17 @@ public class MainActivity extends AppCompatActivity {
                     if(Towns.get(i).getLocation() == day[0]) {
                         location.setText(Towns.get(i).getName());
                         inCity = true;
+
+                        if(Towns.get(i).getName().equals("Oregon")) {
+                            for (int i2 = 0; i2 < wagon.getPeople().size(); i2++) {
+                                wagon.getPeople().get(i2).setEmotion(Person.Emotion.HAPPY);
+                            }
+
+                            display.setText("You made it to Oregon!\nGAME OVER");
+                            // TODO: Reset game
+                            break;
+                        }
+
                         break;
                     }
                 }
