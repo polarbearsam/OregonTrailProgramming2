@@ -156,8 +156,6 @@ public class MainActivity extends AppCompatActivity {
                 // Runs through and checks emotion
 
                 Person.Emotion emotion = hattie.getEmotion(); // Gets Emotion
-                String emotionL = String.valueOf(emotion); // Changes emotion to string value
-                Person.switchImage(emotionL); // Gets file for emotion
 
 
                 if (emotion.equals(Person.Emotion.HAPPY)) {
