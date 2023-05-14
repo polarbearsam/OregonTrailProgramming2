@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         // GUI Elements
         ImageView imageView = findViewById(R.id.mapImage);
         final Button end = findViewById(R.id.endButton);
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView location = findViewById(R.id.locationText);
         final TextView title = findViewById(R.id.oregonWelcome);
         ImageView model = findViewById(R.id.person);
+        model.setVisibility(View.INVISIBLE);
 
         // Characters
         Person hattie = new Person("Hattie Campbell");
@@ -112,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
             // Code to hide start button goes here
             final int[] day = {0};
             start.setVisibility(View.INVISIBLE);
+            model.setVisibility(View.INVISIBLE);
 
             // Controls the progression of time and travel simulation.
             end.setOnClickListener(view1 -> {
