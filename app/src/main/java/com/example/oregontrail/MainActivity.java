@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.oregontrail.Events.CholeraEvent;
 import com.example.oregontrail.Events.SuppliesEvent;
 import com.example.oregontrail.Events.TheftEvent;
 
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
      * @param minNumber Lowest number to generate.
      * @return the randomly generated number.
      */
-    public int randomValue(int maxNumber, int minNumber) {
+    public static int randomValue(int maxNumber, int minNumber) {
         // create instance of Random class
         Random rand = new Random();
 
@@ -55,75 +56,95 @@ public class MainActivity extends AppCompatActivity {
         return rand.nextInt(maxNumber + 1 - minNumber) + minNumber;
     }
 
-    @SuppressLint("SetTextI18n") // Unclear why this is needed, but it is.
+    @SuppressLint({"SetTextI18n", "UseCompatLoadingForDrawables"}) // Unclear why this is needed, but it is.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        //Layouts
+        final int mainActivity = R.layout.activity_main;
+        final int map = R.layout.map;
+        final int store = R.layout.store;
+
+        setContentView(mainActivity);
 
         // GUI Elements
-        ImageView imageView = findViewById(R.id.imageView);
-        final Button end = findViewById(R.id.endButton);
-        final Button map = findViewById(R.id.mapButton);
+        final Button endDay = findViewById(R.id.endButton);
+        final Button mapButton = findViewById(R.id.mapButton);
         final Button stats = findViewById(R.id.statsButton);
-        final Button start = findViewById(R.id.startButton);
+        final Button startButton = findViewById(R.id.startButton);
+        final ImageView mapImage = findViewById(R.id.mapImage);
+        final ImageView model = findViewById(R.id.person);
         final TextView display = findViewById(R.id.statsDisplay);
         final TextView location = findViewById(R.id.locationText);
         final TextView title = findViewById(R.id.oregonWelcome);
-        ImageView model = findViewById(R.id.person);
-
-        // Characters
-        Person hattie = new Person("Hattie Campbell");
-        ArrayList<Person> people = new ArrayList<>();
-        people.add(hattie);
-
-        // Items
-        ArrayList<Item> items = new ArrayList<>();
-        items.add(new Item("Ammo", 200, 0));
-        items.add(new Item("Clothes", 8, 0));
-        items.add(new Item("Food", 2000, 0));
-        items.add(new Item("Medical Supplies", 1, 0));
-        items.add(new Item("Spare Wagon Axles", 3, 0));
-        items.add(new Item("Spare Wagon Tongues", 3, 0));
-        items.add(new Item("Spare Wagon Wheels", 3, 0));
-        items.add(new Item("Water", 100, 0));
-
-        // List of locations on the trail.
-        ArrayList<Place> Towns = new ArrayList<>();
-        Towns.add(new Place("Independence, Missouri", 1));
-        Towns.add(new Place("Elk Grove, Nebraska", 60));
-        Towns.add(new Place("Ash Hollow, Nebraska", 100));
-        Towns.add(new Place("Chimney Rock, Nebraska", 140));
-        Towns.add(new Place("Independence Rock, Wyoming", 180));
-        Towns.add(new Place("Oregon", 240));
-
-        // Random Events
-        ArrayList<Event> Events = new ArrayList<>();
-        Events.add(new SuppliesEvent(1));
-        Events.add(new TheftEvent(1));
-
-
-        // Wagon
-        Wagon wagon = new Wagon(items, 1000, 6, people);
 
         // Controls start button.
-        start.setOnClickListener(view -> {
-            // Code to hide start button goes here
+        startButton.setOnClickListener(view1 -> {
+            startButton.setVisibility(View.INVISIBLE); // Hides start button.
+
+            // Characters
+            ArrayList<Person> people = new ArrayList<>();
+            people.add(new Person("Hattie Campbell"));
+
+            // Day Counter
             final int[] day = {0};
-            start.setVisibility(View.INVISIBLE);
+
+            // Items
+            ArrayList<Item> items = new ArrayList<>();
+            items.add(new Item("Ammo", 200, 0));
+            items.add(new Item("Clothes", 8, 0));
+            items.add(new Item("Food", 2000, 0));
+            items.add(new Item("Medical Supplies", 1, 0));
+            items.add(new Item("Spare Wagon Axles", 3, 0));
+            items.add(new Item("Spare Wagon Tongues", 3, 0));
+            items.add(new Item("Spare Wagon Wheels", 3, 0));
+            items.add(new Item("Water", 100, 0));
+
+            // List of locations on the trail.
+            ArrayList<Place> Towns = new ArrayList<>();
+            Towns.add(new Place("Independence, Missouri", 1));
+            Towns.add(new Place("Elk Grove, Nebraska", 60));
+            Towns.add(new Place("Ash Hollow, Nebraska", 100));
+            Towns.add(new Place("Chimney Rock, Nebraska", 140));
+            Towns.add(new Place("Independence Rock, Wyoming", 180));
+            Towns.add(new Place("Oregon", 240));
+
+            // Random Events
+            ArrayList<Event> Events = new ArrayList<>();
+            Events.add(new CholeraEvent(1));
+            Events.add(new SuppliesEvent(1));
+            Events.add(new TheftEvent(1));
+
+            // Wagon
+            Wagon wagon = new Wagon(items, 1000, 6, people);
 
             // Controls the progression of time and travel simulation.
-            end.setOnClickListener(view1 -> {
+            endDay.setOnClickListener(view2 -> {
                 boolean inCity = false;
 
+                // Progress Day
                 day[0]++;
                 title.setText("Day " + day[0]);
                 location.setText("On the trail.");
-                hattie.nextDay(wagon);
 
                 // Runs all the daily calculations for each character.
                 for (int i = 0; i < wagon.getPeople().size(); i++) {
                     Person person = wagon.getPeople().get(i);
+
+                    Person.Emotion emotion = person.getEmotion();
+
+                    if (emotion.equals(Person.Emotion.HAPPY)) {
+                        model.setForeground(getDrawable(R.drawable.happy));
+                    } else if (emotion.equals(Person.Emotion.ANGRY)) {
+                        model.setForeground(getDrawable(R.drawable.angry));
+                    } else if (emotion.equals(Person.Emotion.ILL)) {
+                        model.setForeground(getDrawable(R.drawable.ill));
+                    } else if (emotion.equals(Person.Emotion.SAD)) {
+                        model.setForeground(getDrawable(R.drawable.sad));
+                    } else if (emotion.equals(Person.Emotion.NEUTRAL)) {
+                        model.setForeground(getDrawable(R.drawable.neutral));
+                    }
 
 
                     // Checks if person has died.
@@ -139,59 +160,41 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
+                // Checks if the player is in a town.
                 for (int i = 0; i < Towns.size(); i++) {
                     if(Towns.get(i).getLocation() == day[0]) {
                         location.setText(Towns.get(i).getName());
                         inCity = true;
+
+                        if (Towns.get(i).getName().equals("Oregon")){
+                            display.setText("YOU MADE IT TO OREGON!\nGAME OVER. YOU WON!");
+                        }
+
                         break;
                     }
                 }
 
+                // Determines if a random event will occur.
                 if (randomValue(10, 1) == 1 && !inCity) {
                     Events.get(randomValue(Events.size() - 1, 0)).onEvent(wagon);
                 }
-
-                // Emotion code
-                // Runs through and checks emotion
-
-                Person.Emotion emotion = hattie.getEmotion(); // Gets Emotion
-                String emotionL = String.valueOf(emotion); // Changes emotion to string value
-                Person.switchImage(emotionL); // Gets file for emotion
-
-
-                if (emotion.equals(Person.Emotion.HAPPY)) {
-                    model.setForeground(getDrawable(R.drawable.happy));
-                } else if (emotion.equals(Person.Emotion.ANGRY)) {
-                    model.setForeground(getDrawable(R.drawable.angry));
-                } else if (emotion.equals(Person.Emotion.ILL)) {
-                    model.setForeground(getDrawable(R.drawable.ill));
-                } else if (emotion.equals(Person.Emotion.SAD)) {
-                    model.setForeground(getDrawable(R.drawable.sad));
-                } else if (emotion.equals(Person.Emotion.NEUTRAL)) {
-                    model.setForeground(getDrawable(R.drawable.neutral));
-                }
-
             });
 
             // Displays a list of towns.
-            map.setOnClickListener(view1 -> {
-                imageView.setVisibility(View.VISIBLE);
+            mapButton.setOnClickListener(view2 -> {
+                mapImage.setVisibility(View.VISIBLE);
                 display.setVisibility(View.INVISIBLE);
                 model.setVisibility(View.INVISIBLE);
             });
 
             // Controls the stats display.
-            stats.setOnClickListener(view12 -> {
-                imageView.setVisibility(View.INVISIBLE);
+            stats.setOnClickListener(view2 -> {
                 model.setVisibility(View.VISIBLE);
                 // Displays stats
-                display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
+                // TODO: Make modular.
+                display.setText("Hattie Campbell Stats = Health: " + people.get(0).getHealth() + "\nThirst: " + people.get(0).getThirst() + "\nHunger: " + people.get(0).getHunger() + "\nMood: " + people.get(0).getEmotion());
                 display.setVisibility(View.VISIBLE);
-
-
             });
-
         });
-
     }
 }

@@ -9,12 +9,9 @@ package com.example.oregontrail;
 /**
  * Creates a condition that people can have.
  */
-public class Condition {
-
-    // TODO: Implement Effects of Conditions.
+public abstract class Condition {
 
     private final int duration;
-    //private ArrayList<?> effects;
     private final String name;
 
     /**
@@ -26,6 +23,12 @@ public class Condition {
         this.duration = duration;
         this.name = name;
     }
+
+    /**
+     * Executes the effects of the condition.
+     * @param person person that the effects will apply to.
+     */
+    public abstract boolean effects(Person person);
 
     /**
      * Gets the duration of the condition.
