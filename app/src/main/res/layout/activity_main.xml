@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/startScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
@@ -56,6 +55,17 @@
         android:text="wagon"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapButton" />
+
+    <Button
+        android:id="@+id/storeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:text="store"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/wagonButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapButton" />
 
@@ -138,6 +148,174 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.416"
         app:srcCompat="@drawable/map" />
+
+    <ImageView
+        android:id="@+id/blackBox"
+        android:layout_width="449dp"
+        android:layout_height="767dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="382dp"
+        android:layout_height="460dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/oregonWelcome"
+        app:srcCompat="@android:drawable/screen_background_light" />
+
+    <EditText
+        android:id="@+id/SHOP"
+        android:layout_width="231dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:text="SHOP"
+        android:textAlignment="center"
+        android:textColor="#85EFDA"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/oregonWelcome" />
+
+    <ImageButton
+        android:id="@+id/breadButton"
+        android:layout_width="141dp"
+        android:layout_height="117dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="4dp"
+        android:background="#FFFFFF"
+        android:foreground="@drawable/food"
+        app:layout_constraintBottom_toTopOf="@+id/foodText"
+        app:layout_constraintEnd_toStartOf="@+id/waterButton"
+        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintStart_toStartOf="@+id/locationText"
+        app:layout_constraintTop_toBottomOf="@+id/shopTextSmall"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/btn_star"
+        tools:srcCompat="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/waterButton"
+        android:layout_width="74dp"
+        android:layout_height="105dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="7dp"
+        android:backgroundTint="#FFFFFF"
+        android:foreground="@drawable/water"
+        app:layout_constraintBottom_toTopOf="@+id/waterText"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/statsDisplay"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/bulletButton"
+        android:layout_width="54dp"
+        android:layout_height="156dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#FFFFFF"
+        android:foreground="@drawable/bullet"
+        app:layout_constraintBottom_toTopOf="@+id/bulletText"
+        app:layout_constraintEnd_toStartOf="@+id/clothesButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/divider_horizontal_bright" />
+
+    <ImageButton
+        android:id="@+id/clothesButton"
+        android:layout_width="130dp"
+        android:layout_height="127dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#FFFFFF"
+        android:foreground="@drawable/shirt"
+        app:layout_constraintBottom_toTopOf="@+id/clothesText"
+        app:layout_constraintEnd_toEndOf="@+id/mapImage"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <EditText
+        android:id="@+id/bulletText"
+        android:layout_width="155dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Bullets: 0"
+        app:layout_constraintBottom_toTopOf="@+id/wagonButton"
+        app:layout_constraintEnd_toStartOf="@+id/clothesText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/clothesText"
+        android:layout_width="179dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=" Clothes: 0"
+        app:layout_constraintBottom_toBottomOf="@+id/statsDisplay"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/foodText"
+        android:layout_width="168dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Food: 0"
+        app:layout_constraintBottom_toTopOf="@+id/bulletButton"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/waterText"
+        android:layout_width="178dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Water: 0"
+        app:layout_constraintBottom_toTopOf="@+id/clothesButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="93dp"
+        android:layout_height="59dp"
+        android:text="EXIT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/startButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wagonButton" />
+
+    <Button
+        android:id="@+id/BUY"
+        android:layout_width="102dp"
+        android:layout_height="63dp"
+        android:text="BUY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/startButton"
+        app:layout_constraintTop_toBottomOf="@+id/statsDisplay" />
+
+    <EditText
+        android:id="@+id/shopTextSmall"
+        android:layout_width="401dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Click an item multiple times to add to cart!"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SHOP" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

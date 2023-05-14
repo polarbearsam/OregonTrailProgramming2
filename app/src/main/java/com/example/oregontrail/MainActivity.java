@@ -12,6 +12,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ import java.util.Random;
  * Controls the main game and GUI elements.
  */
 public class MainActivity extends AppCompatActivity {
+
 
     /**
      * This function creates an ending for an Oregon Trail game based on the player's name, cause of death, and day.
@@ -62,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // GUI Elements
-        ImageView imageView = findViewById(R.id.imageView);
+        ImageView imageView = findViewById(R.id.blackBox);
+        ImageView mapView = findViewById(R.id.mapImage);
         final Button end = findViewById(R.id.endButton);
         final Button map = findViewById(R.id.mapButton);
         final Button wagonButton = findViewById(R.id.wagonButton);
@@ -72,6 +75,22 @@ public class MainActivity extends AppCompatActivity {
         final TextView location = findViewById(R.id.locationText);
         final TextView title = findViewById(R.id.oregonWelcome);
         ImageView model = findViewById(R.id.person);
+
+        final Button storeButton = findViewById(R.id.storeButton);
+        ImageView white = findViewById(R.id.imageView2);
+        final TextView bulletCount = findViewById(R.id.bulletText);
+        final TextView foodCount = findViewById(R.id.foodText);
+        final TextView waterCount = findViewById(R.id.waterText);
+        final TextView clothesCount = findViewById(R.id.clothesText);
+        final ImageButton food = findViewById(R.id.breadButton);
+        final ImageButton water = findViewById(R.id.waterButton);
+        final ImageButton clothes = findViewById(R.id.clothesButton);
+        final ImageButton bullet = findViewById(R.id.bulletButton);
+        final Button exit = findViewById(R.id.exitButton);
+        final TextView shop = findViewById(R.id.SHOP);
+        final TextView smallShop = findViewById(R.id.shopTextSmall);
+        final Button buy = findViewById(R.id.BUY);
+
 
         // Characters
         Person hattie = new Person("Hattie Campbell");
@@ -109,9 +128,27 @@ public class MainActivity extends AppCompatActivity {
 
         // Controls start button.
         start.setOnClickListener(view -> {
+
             // Code to hide start button goes here
             final int[] day = {0};
             start.setVisibility(View.INVISIBLE);
+
+            // Hides shop
+            imageView.setVisibility(View.INVISIBLE);
+            white.setVisibility(View.INVISIBLE);
+            bulletCount.setVisibility(View.INVISIBLE);
+            foodCount.setVisibility(View.INVISIBLE);
+            waterCount.setVisibility(View.INVISIBLE);
+            clothesCount.setVisibility(View.INVISIBLE);
+            food.setVisibility(View.INVISIBLE);
+            water.setVisibility(View.INVISIBLE);
+            clothes.setVisibility(View.INVISIBLE);
+            bullet.setVisibility(View.INVISIBLE);
+            exit.setVisibility(View.INVISIBLE);
+            shop.setVisibility(View.INVISIBLE);
+            smallShop.setVisibility(View.INVISIBLE);
+            buy.setVisibility(View.INVISIBLE);
+
 
             // Controls the progression of time and travel simulation.
             end.setOnClickListener(view1 -> {
@@ -174,14 +211,14 @@ public class MainActivity extends AppCompatActivity {
 
             // Displays a list of towns.
             map.setOnClickListener(view1 -> {
-                imageView.setVisibility(View.VISIBLE);
+                mapView.setVisibility(View.VISIBLE);
                 display.setVisibility(View.INVISIBLE);
                 model.setVisibility(View.INVISIBLE);
             });
 
             // Controls the stats display.
             stats.setOnClickListener(view12 -> {
-                imageView.setVisibility(View.INVISIBLE);
+                mapView.setVisibility(View.INVISIBLE);
                 model.setVisibility(View.VISIBLE);
                 // Displays stats
                 display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
@@ -194,13 +231,136 @@ public class MainActivity extends AppCompatActivity {
 
         // Controls the wagon display.
         wagonButton.setOnClickListener(view12 -> {
-            imageView.setVisibility(View.INVISIBLE);
+            mapView.setVisibility(View.INVISIBLE);
             model.setVisibility(View.VISIBLE);
             // Displays wagon stats
             display.setText("Wagon Stats = Ammo: " + wagon.getItem("Ammo").getCount() + "\nClothes: " + wagon.getItem("Clothes").getCount() + "\nFood: " + wagon.getItem("Food").getCount() + "\nMedical Supplies: " + wagon.getItem("Medical Supplies").getCount() + "\nWater: " + wagon.getItem("Water").getCount());
             display.setVisibility(View.VISIBLE);
 
 
+
+        });
+
+        storeButton.setOnClickListener(view12 -> {
+
+            imageView.setVisibility(View.VISIBLE);
+            white.setVisibility(View.VISIBLE);
+            bulletCount.setVisibility(View.VISIBLE);
+            foodCount.setVisibility(View.VISIBLE);
+            waterCount.setVisibility(View.VISIBLE);
+            clothesCount.setVisibility(View.VISIBLE);
+            food.setVisibility(View.VISIBLE);
+            water.setVisibility(View.VISIBLE);
+            clothes.setVisibility(View.VISIBLE);
+            bullet.setVisibility(View.VISIBLE);
+            exit.setVisibility(View.VISIBLE);
+            shop.setVisibility(View.VISIBLE);
+            smallShop.setVisibility(View.VISIBLE);
+            buy.setVisibility(View.VISIBLE);
+
+            //hide
+            model.setVisibility(View.INVISIBLE);
+            storeButton.setVisibility(View.INVISIBLE);
+            display.setVisibility(View.INVISIBLE);
+            wagonButton.setVisibility(View.INVISIBLE);
+            start.setVisibility(View.INVISIBLE);
+            end.setVisibility(View.INVISIBLE);
+            stats.setVisibility(View.INVISIBLE);
+            location.setVisibility(View.INVISIBLE);
+            title.setVisibility(View.INVISIBLE);
+            mapView.setVisibility(View.INVISIBLE);
+            map.setVisibility(View.INVISIBLE);
+
+
+        });
+        exit.setOnClickListener(view12 -> {
+
+            //Displays StartScreen
+            model.setVisibility(View.VISIBLE);
+            storeButton.setVisibility(View.VISIBLE);
+            display.setVisibility(View.VISIBLE);
+            wagonButton.setVisibility(View.VISIBLE);
+            end.setVisibility(View.VISIBLE);
+            stats.setVisibility(View.VISIBLE);
+            location.setVisibility(View.VISIBLE);
+            title.setVisibility(View.VISIBLE);
+
+            map.setVisibility(View.VISIBLE);
+
+            // Hides Shop
+            imageView.setVisibility(View.INVISIBLE);
+            white.setVisibility(View.INVISIBLE);
+            bulletCount.setVisibility(View.INVISIBLE);
+            foodCount.setVisibility(View.INVISIBLE);
+            waterCount.setVisibility(View.INVISIBLE);
+            clothesCount.setVisibility(View.INVISIBLE);
+            food.setVisibility(View.INVISIBLE);
+            water.setVisibility(View.INVISIBLE);
+            clothes.setVisibility(View.INVISIBLE);
+            bullet.setVisibility(View.INVISIBLE);
+            exit.setVisibility(View.INVISIBLE);
+            shop.setVisibility(View.INVISIBLE);
+            smallShop.setVisibility(View.INVISIBLE);
+            buy.setVisibility(View.INVISIBLE);
+
+        });
+        // Buy button
+        buy.setOnClickListener(view12 -> {
+            //Displays StartScreen
+            model.setVisibility(View.VISIBLE);
+            storeButton.setVisibility(View.VISIBLE);
+            display.setVisibility(View.VISIBLE);
+            wagonButton.setVisibility(View.VISIBLE);
+            end.setVisibility(View.VISIBLE);
+            stats.setVisibility(View.VISIBLE);
+            location.setVisibility(View.VISIBLE);
+            title.setVisibility(View.VISIBLE);
+
+            map.setVisibility(View.VISIBLE);
+
+            // Hides Shop
+            imageView.setVisibility(View.INVISIBLE);
+            white.setVisibility(View.INVISIBLE);
+            bulletCount.setVisibility(View.INVISIBLE);
+            foodCount.setVisibility(View.INVISIBLE);
+            waterCount.setVisibility(View.INVISIBLE);
+            clothesCount.setVisibility(View.INVISIBLE);
+            food.setVisibility(View.INVISIBLE);
+            water.setVisibility(View.INVISIBLE);
+            clothes.setVisibility(View.INVISIBLE);
+            bullet.setVisibility(View.INVISIBLE);
+            exit.setVisibility(View.INVISIBLE);
+            shop.setVisibility(View.INVISIBLE);
+            smallShop.setVisibility(View.INVISIBLE);
+            buy.setVisibility(View.INVISIBLE);
+        });
+
+        // Food button
+        food.setOnClickListener(view12 -> {
+            int count =0;
+            count++;
+            foodCount.setText("Food: " + count);
+        });
+
+        // Clothes button
+        clothes.setOnClickListener(view12 -> {
+            int count =0;
+            count++;
+            clothesCount.setText("Clothes: " + count);
+        });
+
+        // Bullets button
+        bullet.setOnClickListener(view12 -> {
+            int count =0;
+            count++;
+            bulletCount.setText("Ammo: " + count);
+        });
+
+        // Water button
+        water.setOnClickListener(view12 -> {
+            int count =0;
+            count++;
+            waterCount.setText("Water: " + count);
         });
 
     };
