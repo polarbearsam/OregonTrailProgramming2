@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.oregontrail.Events.CholeraEvent;
+import com.example.oregontrail.Events.DysenteryEvent;
 import com.example.oregontrail.Events.SuppliesEvent;
 import com.example.oregontrail.Events.TheftEvent;
 
@@ -37,17 +39,13 @@ public class MainActivity extends AppCompatActivity {
         return "Here lies " + name + ". They died on day " + day + ".";
     }
 
-
-    // TODO Create function that sees if location is in Oregon, if so it'll display that you made it to Oregon.
-
-
     /**
      * Generates a random number between the maxNumber and minNumber.
      * @param maxNumber Highest number to generate.
      * @param minNumber Lowest number to generate.
      * @return the randomly generated number.
      */
-    public int randomValue(int maxNumber, int minNumber) {
+    public static int randomValue(int maxNumber, int minNumber) {
         // create instance of Random class
         Random rand = new Random();
 
@@ -55,14 +53,16 @@ public class MainActivity extends AppCompatActivity {
         return rand.nextInt(maxNumber + 1 - minNumber) + minNumber;
     }
 
-    @SuppressLint("SetTextI18n") // Unclear why this is needed, but it is.
+    @SuppressLint({"SetTextI18n", "UseCompatLoadingForDrawables"})
+    // Unclear why this is needed, but it is.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // GUI Elements
-        ImageView imageView = findViewById(R.id.imageView);
+        final ImageView mapImage = findViewById(R.id.mapImage);
+        final ImageView model = findViewById(R.id.person);
         final Button end = findViewById(R.id.endButton);
         final Button map = findViewById(R.id.mapButton);
         final Button wagonButton = findViewById(R.id.wagonButton);
@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         final TextView display = findViewById(R.id.statsDisplay);
         final TextView location = findViewById(R.id.locationText);
         final TextView title = findViewById(R.id.oregonWelcome);
-        ImageView model = findViewById(R.id.person);
 
         // Characters
         Person hattie = new Person("Hattie Campbell");
@@ -100,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Random Events
         ArrayList<Event> Events = new ArrayList<>();
+        Events.add(new CholeraEvent(1));
+        Events.add(new DysenteryEvent(1));
         Events.add(new SuppliesEvent(1));
         Events.add(new TheftEvent(1));
 
@@ -170,9 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Emotion code
                 // Runs through and checks emotion
-
                 Person.Emotion emotion = hattie.getEmotion(); // Gets Emotion
-
 
                 if (emotion.equals(Person.Emotion.HAPPY)) {
                     model.setForeground(getDrawable(R.drawable.happy));
@@ -185,41 +184,32 @@ public class MainActivity extends AppCompatActivity {
                 } else if (emotion.equals(Person.Emotion.NEUTRAL)) {
                     model.setForeground(getDrawable(R.drawable.neutral));
                 }
-
             });
 
             // Displays a list of towns.
             map.setOnClickListener(view1 -> {
-                imageView.setVisibility(View.VISIBLE);
+                mapImage.setVisibility(View.VISIBLE);
                 display.setVisibility(View.INVISIBLE);
                 model.setVisibility(View.INVISIBLE);
             });
 
             // Controls the stats display.
             stats.setOnClickListener(view12 -> {
-                imageView.setVisibility(View.INVISIBLE);
+                mapImage.setVisibility(View.INVISIBLE);
                 model.setVisibility(View.VISIBLE);
                 // Displays stats
                 display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
                 display.setVisibility(View.VISIBLE);
-
-
             });
-
         });
 
         // Controls the wagon display.
         wagonButton.setOnClickListener(view12 -> {
-            imageView.setVisibility(View.INVISIBLE);
+            mapImage.setVisibility(View.INVISIBLE);
             model.setVisibility(View.VISIBLE);
             // Displays wagon stats
             display.setText("Wagon Stats = Ammo: " + wagon.getItem("Ammo").getCount() + "\nClothes: " + wagon.getItem("Clothes").getCount() + "\nFood: " + wagon.getItem("Food").getCount() + "\nMedical Supplies: " + wagon.getItem("Medical Supplies").getCount() + "\nWater: " + wagon.getItem("Water").getCount());
             display.setVisibility(View.VISIBLE);
-
-
         });
-
-    };
-
-
+    }
 }
