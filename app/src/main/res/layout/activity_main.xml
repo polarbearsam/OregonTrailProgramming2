@@ -31,8 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statsDisplay"
-        app:layout_constraintVertical_bias="0.779" />
+        app:layout_constraintTop_toBottomOf="@+id/statsDisplay" />
 
     <Button
         android:id="@+id/statsButton"
@@ -103,28 +102,27 @@
 
     <TextView
         android:id="@+id/statsDisplay"
-        android:layout_width="207dp"
-        android:layout_height="147dp"
+        android:layout_width="213dp"
+        android:layout_height="448dp"
         android:layout_marginTop="65dp"
         android:layout_marginBottom="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toEndOf="@+id/endButton"
-        app:layout_constraintTop_toBottomOf="@+id/oregonWelcome"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/oregonWelcome" />
 
     <ImageView
         android:id="@+id/person"
-        android:layout_width="194dp"
-        android:layout_height="360dp"
+        android:layout_width="186dp"
+        android:layout_height="425dp"
         android:foreground="@drawable/neutral"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/mapImage"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.844"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView

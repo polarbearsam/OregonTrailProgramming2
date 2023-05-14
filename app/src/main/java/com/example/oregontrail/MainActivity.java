@@ -15,8 +15,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.oregontrail.Events.CholeraEvent;
-import com.example.oregontrail.Events.DysenteryEvent;
 import com.example.oregontrail.Events.SuppliesEvent;
 import com.example.oregontrail.Events.TheftEvent;
 
@@ -39,13 +37,17 @@ public class MainActivity extends AppCompatActivity {
         return "Here lies " + name + ". They died on day " + day + ".";
     }
 
+
+    // TODO Create function that sees if location is in Oregon, if so it'll display that you made it to Oregon.
+
+
     /**
      * Generates a random number between the maxNumber and minNumber.
      * @param maxNumber Highest number to generate.
      * @param minNumber Lowest number to generate.
      * @return the randomly generated number.
      */
-    public static int randomValue(int maxNumber, int minNumber) {
+    public int randomValue(int maxNumber, int minNumber) {
         // create instance of Random class
         Random rand = new Random();
 
@@ -53,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
         return rand.nextInt(maxNumber + 1 - minNumber) + minNumber;
     }
 
-    @SuppressLint({"SetTextI18n", "UseCompatLoadingForDrawables"}) // Unclear why this is needed, but it is.
+    @SuppressLint("SetTextI18n") // Unclear why this is needed, but it is.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // GUI Elements
-        ImageView imageView = findViewById(R.id.mapImage);
+        ImageView imageView = findViewById(R.id.imageView);
         final Button end = findViewById(R.id.endButton);
         final Button map = findViewById(R.id.mapButton);
         final Button wagonButton = findViewById(R.id.wagonButton);
@@ -98,8 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Random Events
         ArrayList<Event> Events = new ArrayList<>();
-        Events.add(new CholeraEvent(1));
-        Events.add(new DysenteryEvent(1));
         Events.add(new SuppliesEvent(1));
         Events.add(new TheftEvent(1));
 
@@ -173,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Person.Emotion emotion = hattie.getEmotion(); // Gets Emotion
 
+
                 if (emotion.equals(Person.Emotion.HAPPY)) {
                     model.setForeground(getDrawable(R.drawable.happy));
                 } else if (emotion.equals(Person.Emotion.ANGRY)) {
@@ -201,7 +202,10 @@ public class MainActivity extends AppCompatActivity {
                 // Displays stats
                 display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
                 display.setVisibility(View.VISIBLE);
+
+
             });
+
         });
 
         // Controls the wagon display.
@@ -211,6 +215,11 @@ public class MainActivity extends AppCompatActivity {
             // Displays wagon stats
             display.setText("Wagon Stats = Ammo: " + wagon.getItem("Ammo").getCount() + "\nClothes: " + wagon.getItem("Clothes").getCount() + "\nFood: " + wagon.getItem("Food").getCount() + "\nMedical Supplies: " + wagon.getItem("Medical Supplies").getCount() + "\nWater: " + wagon.getItem("Water").getCount());
             display.setVisibility(View.VISIBLE);
+
+
         });
-    }
+
+    };
+
+
 }
