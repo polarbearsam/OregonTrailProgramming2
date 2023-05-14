@@ -114,8 +114,8 @@
 
     <ImageView
         android:id="@+id/person"
-        android:layout_width="197dp"
-        android:layout_height="458dp"
+        android:layout_width="186dp"
+        android:layout_height="425dp"
         android:foreground="@drawable/neutral"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
