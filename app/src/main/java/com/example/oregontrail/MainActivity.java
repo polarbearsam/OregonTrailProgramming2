@@ -9,7 +9,6 @@ package com.example.oregontrail;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +19,6 @@ import com.example.oregontrail.Events.SuppliesEvent;
 import com.example.oregontrail.Events.TheftEvent;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -104,23 +102,6 @@ public class MainActivity extends AppCompatActivity {
         Events.add(new SuppliesEvent(1));
         Events.add(new TheftEvent(1));
 
-        Person emotion = people.get(hattie.getEmotion()); // Gets Emotion
-        String emotionL = String.valueOf(emotion); // Changes emotion to string value
-        Person.switchImage(emotionL); // Gets file for emotion
-        model.setForeground(emotion);
-
-        if (emotion.equals(Person.Emotion.HAPPY)) {
-              model.setForeground(getDrawable(R.drawable.happy));
-        } else if (emotion.equals(Person.Emotion.ANGRY)) {
-              model.setForeground(getDrawable(R.drawable.angry));
-        } else if (emotion.equals(Person.Emotion.ILL)) {
-              model.setForeground(getDrawable(R.drawable.ill));
-        } else if (emotion.equals(Person.Emotion.SAD)) {
-              model.setForeground(getDrawable(R.drawable.sad));
-        } else if (emotion.equals(Person.Emotion.NEUTRAL)) {
-              model.setForeground(getDrawable(R.drawable.neutral));
-        }
-
 
         // Wagon
         Wagon wagon = new Wagon(items, 1000, 6, people);
@@ -162,9 +143,6 @@ public class MainActivity extends AppCompatActivity {
                     if(Towns.get(i).getLocation() == day[0]) {
                         location.setText(Towns.get(i).getName());
                         inCity = true;
-                        if (Towns.equals("Oregon")){
-                            display.setText("YOU MADE IT TO OREGON!" + "\n GAME OVER. YOU WON!");
-                        }
                         break;
                     }
                 }
@@ -172,6 +150,27 @@ public class MainActivity extends AppCompatActivity {
                 if (randomValue(10, 1) == 1 && !inCity) {
                     Events.get(randomValue(Events.size() - 1, 0)).onEvent(wagon);
                 }
+
+                // Emotion code
+                // Runs through and checks emotion
+
+                Person.Emotion emotion = hattie.getEmotion(); // Gets Emotion
+                String emotionL = String.valueOf(emotion); // Changes emotion to string value
+                Person.switchImage(emotionL); // Gets file for emotion
+
+
+                if (emotion.equals(Person.Emotion.HAPPY)) {
+                    model.setForeground(getDrawable(R.drawable.happy));
+                } else if (emotion.equals(Person.Emotion.ANGRY)) {
+                    model.setForeground(getDrawable(R.drawable.angry));
+                } else if (emotion.equals(Person.Emotion.ILL)) {
+                    model.setForeground(getDrawable(R.drawable.ill));
+                } else if (emotion.equals(Person.Emotion.SAD)) {
+                    model.setForeground(getDrawable(R.drawable.sad));
+                } else if (emotion.equals(Person.Emotion.NEUTRAL)) {
+                    model.setForeground(getDrawable(R.drawable.neutral));
+                }
+
             });
 
             // Displays a list of towns.
@@ -188,9 +187,11 @@ public class MainActivity extends AppCompatActivity {
                 // Displays stats
                 display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
                 display.setVisibility(View.VISIBLE);
+
+
             });
 
         });
-    
+
     }
 }

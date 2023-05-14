@@ -155,9 +155,7 @@ public class Person extends Drawable {
      *
      * @return The current emotion.
      */
-    public int getEmotion() {
-        return emotion;
-    }
+    public Emotion getEmotion() {return emotion;}
 
     /**
      * Gets the person's health.
