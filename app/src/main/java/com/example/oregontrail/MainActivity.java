@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (randomValue(10, 1) == 1 && !inCity) {
-                    Events.get(randomValue(Events.size() - 1, 0)).onEvent(wagon);
+                    display.setText(Events.get(randomValue(Events.size() - 1, 0)).onEvent(wagon));
                 }
 
                 // Emotion code
