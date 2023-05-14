@@ -7,6 +7,7 @@
 package com.example.oregontrail.Events;
 
 import com.example.oregontrail.Event;
+import com.example.oregontrail.Person;
 import com.example.oregontrail.Wagon;
 
 /**
@@ -32,6 +33,11 @@ public class TheftEvent extends Event {
         wagon.getItem("Ammo").removeFromCount(25);
         wagon.getItem("Clothes").removeFromCount(1);
         wagon.getItem("Food").removeFromCount(50);
+
+        for (int i = 0; i < wagon.getPeople().size(); i++) {
+            wagon.getPeople().get(i).setEmotion(Person.Emotion.ANGRY);
+        }
+
         return "Thieves steal supplies during the middle of the night.";
     }
 }

@@ -34,7 +34,7 @@ public class Cholera extends Condition {
         days++;
 
         person.setEmotion(Person.Emotion.ILL);
-        person.drink(5);
+        person.setThirstRate(5);
 
         return days >= getDuration();
     }
