@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             // Code to hide start button goes here
             final int[] day = {0};
             start.setVisibility(View.INVISIBLE);
+            model.setVisibility(View.INVISIBLE);
 
             // Controls the progression of time and travel simulation.
             end.setOnClickListener(view1 -> {
