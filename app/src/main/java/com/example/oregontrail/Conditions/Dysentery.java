@@ -1,8 +1,8 @@
 /**
- * File Name: Cholera.java
+ * File Name: Dysentery.java
  * Date: May 13, 2023
  * @author Samuel Freer
- * Description: Defines the effects of having cholera.
+ * Description: Defines the effects of having dysentery.
  */
 package com.example.oregontrail.Conditions;
 
@@ -10,22 +10,22 @@ import com.example.oregontrail.Condition;
 import com.example.oregontrail.Person;
 
 /**
- * Defines the effects of having cholera.
+ * Defines the effects of having dysentery.
  */
-public class Cholera extends Condition {
+public class Dysentery extends Condition {
 
     private int days = 0;
 
     /**
-     * Creates the cholera condition.
-     * @param duration length of the cholera.
+     * Creates the dysentery condition.
+     * @param duration length of the dysentery.
      */
-    public Cholera(int duration) {
-        super(duration, "Cholera");
+    public Dysentery(int duration) {
+        super(duration, "Dysentery");
     }
 
     /**
-     * Controls the effects of the cholera condition.
+     * Executes the effects of the condition.
      * @param person person that the effects will apply to.
      * @return true if the condition should no longer apply, otherwise false.
      */
@@ -34,7 +34,8 @@ public class Cholera extends Condition {
         days++;
 
         person.setEmotion(Person.Emotion.ILL);
-        person.drink(5);
+        person.eat(3);
+        person.drink(3);
 
         return days >= getDuration();
     }

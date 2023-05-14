@@ -27,6 +27,7 @@ public abstract class Condition {
     /**
      * Executes the effects of the condition.
      * @param person person that the effects will apply to.
+     * @return true if the condition should no longer apply, otherwise false.
      */
     public abstract boolean effects(Person person);
 

@@ -1,5 +1,5 @@
 /**
- * File Name: ContractsCholera.java
+ * File Name: CholeraEvent.java
  * Date: May 13, 2023
  * @author Samuel Freer
  * Description: Gives a person cholera.

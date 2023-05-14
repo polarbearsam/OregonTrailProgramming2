@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // GUI Elements
+        ImageView imageView = findViewById(R.id.imageView);
         final Button end = findViewById(R.id.endButton);
         final Button map = findViewById(R.id.mapButton);
         final Button wagonButton = findViewById(R.id.wagonButton);
@@ -70,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         final TextView display = findViewById(R.id.statsDisplay);
         final TextView location = findViewById(R.id.locationText);
         final TextView title = findViewById(R.id.oregonWelcome);
-        ImageView mapView = findViewById(R.id.mapImage);
         ImageView model = findViewById(R.id.person);
 
         // Characters
@@ -92,11 +92,11 @@ public class MainActivity extends AppCompatActivity {
         // List of locations on the trail.
         ArrayList<Place> Towns = new ArrayList<>();
         Towns.add(new Place("Independence, Missouri", 1));
-        Towns.add(new Place("Elk Grove, Nebraska", 20));
-        Towns.add(new Place("Ash Hollow, Nebraska", 40));
-        Towns.add(new Place("Chimney Rock, Nebraska", 60));
-        Towns.add(new Place("Independence Rock, Wyoming", 80));
-        Towns.add(new Place("Oregon", 100));
+        Towns.add(new Place("Elk Grove, Nebraska", 60));
+        Towns.add(new Place("Ash Hollow, Nebraska", 100));
+        Towns.add(new Place("Chimney Rock, Nebraska", 140));
+        Towns.add(new Place("Independence Rock, Wyoming", 180));
+        Towns.add(new Place("Oregon", 240));
 
         // Random Events
         ArrayList<Event> Events = new ArrayList<>();
@@ -109,9 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Controls start button.
         start.setOnClickListener(view -> {
-
-            mapView.setVisibility(View.INVISIBLE);
-
             // Code to hide start button goes here
             final int[] day = {0};
             start.setVisibility(View.INVISIBLE);
@@ -160,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Person.Emotion emotion = hattie.getEmotion(); // Gets Emotion
                 String emotionL = String.valueOf(emotion); // Changes emotion to string value
+                Person.switchImage(emotionL); // Gets file for emotion
 
 
                 if (emotion.equals(Person.Emotion.HAPPY)) {
@@ -178,17 +176,17 @@ public class MainActivity extends AppCompatActivity {
 
             // Displays a list of towns.
             map.setOnClickListener(view1 -> {
+                imageView.setVisibility(View.VISIBLE);
                 display.setVisibility(View.INVISIBLE);
                 model.setVisibility(View.INVISIBLE);
-                mapView.setVisibility(View.VISIBLE);
             });
 
             // Controls the stats display.
             stats.setOnClickListener(view12 -> {
+                imageView.setVisibility(View.INVISIBLE);
                 model.setVisibility(View.VISIBLE);
-                mapView.setVisibility(View.INVISIBLE);
                 // Displays stats
-                display.setText("Hattie Campbell Stats = \n Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
+                display.setText("Hattie Campbell Stats = Health: " + hattie.getHealth() + "\nThirst: " + hattie.getThirst() + "\nHunger: " + hattie.getHunger() + "\nMood: " + hattie.getEmotion());
                 display.setVisibility(View.VISIBLE);
 
 
@@ -198,11 +196,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Controls the wagon display.
         wagonButton.setOnClickListener(view12 -> {
+            imageView.setVisibility(View.INVISIBLE);
             model.setVisibility(View.VISIBLE);
-            mapView.setVisibility(View.INVISIBLE);
             // Displays wagon stats
-            display.setText("Wagon Stats = \n Ammo: " + wagon.getItem("Ammo").getCount() + "\nClothes: " + wagon.getItem("Clothes").getCount() + "\nFood: " + wagon.getItem("Food").getCount() + "\nMedical Supplies: " + wagon.getItem("Medical Supplies").getCount() + "\nWater: " + wagon.getItem("Water").getCount());
+            display.setText("Wagon Stats = Ammo: " + wagon.getItem("Ammo").getCount() + "\nClothes: " + wagon.getItem("Clothes").getCount() + "\nFood: " + wagon.getItem("Food").getCount() + "\nMedical Supplies: " + wagon.getItem("Medical Supplies").getCount() + "\nWater: " + wagon.getItem("Water").getCount());
             display.setVisibility(View.VISIBLE);
+
 
         });
 
