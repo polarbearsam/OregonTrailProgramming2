@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
      * @param minNumber Lowest number to generate.
      * @return the randomly generated number.
      */
-    public int randomValue(int maxNumber, int minNumber) {
+    public static int randomValue(int maxNumber, int minNumber) {
         // create instance of Random class
         Random rand = new Random();
 
