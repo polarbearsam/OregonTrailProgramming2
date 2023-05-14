@@ -49,6 +49,17 @@
         app:layout_constraintTop_toBottomOf="@+id/oregonWelcome" />
 
     <Button
+        android:id="@+id/wagonButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:text="wagon"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapButton" />
+
+    <Button
         android:id="@+id/endButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
